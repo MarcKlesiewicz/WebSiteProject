@@ -55,7 +55,7 @@ main{
 }
 
 .herobox1{
-    flex: 2;
+    flex: 1;
     padding-right: 100px;
     color: #ece4dc;
     margin-top: 150px;
@@ -64,8 +64,90 @@ main{
 }
 
 .herobox2{
-    flex: 2;
+    flex: 1;
+    height: 500px;
+    width: 500px;
+    margin-right: 400px;
 }
+
+.blob1{
+    position: absolute;
+    height: 500px;
+    
+}
+.blob2{
+    position: absolute;
+}
+
+#surround:hover img[id="blob2"]{
+    display: none;
+}
+
+#surround:hover img[id="blob1"]{
+    display: none;
+}
+
+#surround:hover img[id="blob2_a"]{
+    animation: spinleft 20s linear infinite;
+    
+}
+
+#surround:hover img[id="blob1_a"]{
+    animation: spinright 20s linear infinite;
+    
+}
+
+#surround:hover img[id="me_bnw"]{
+    display: none;
+    
+}
+
+#surround:hover img[id="me_active"]{
+    filter: grayscale(0%);
+    
+}
+
+#surround:hover div[id="herotext2"]{
+    display: block;
+    
+    
+}
+
+
+
+.hero2image{
+    height: 500px;
+    position: absolute;
+    border-radius: 100%;
+    filter: grayscale(100%);
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.hero2text{
+    text-align: right;
+    height: 100px;
+    width: 40%;
+    font-family: 'Source Code Pro', monospace;
+    margin-top: 25px;
+    color: #ece4dc;
+    z-index: +1;
+    position: absolute;
+    display: none;
+    
+
+
+
+}
+
+.herobox2arrow{
+    padding-right: 50px;
+    padding-top: -50px;
+    height: 20px;
+}
+
+
+
 
 .heroimage{
     height: 500px;
@@ -146,7 +228,7 @@ h1{
 
 
 
-* {box-sizing:border-box}
+
 
 /* Slideshow container */
 .slideshow-container {
@@ -167,7 +249,7 @@ h1{
     background-color: #ff6c89af;
     border-radius: 15px;
     display: flex;
-    color: #0e1a26;    
+    color: #ece4dc;    
 }
 .projectsection1{
     flex: 1;
@@ -344,6 +426,13 @@ footer{
     
 }
 
+@keyframes spinleft{
+    100% { transform: rotate(-360deg); }
+  }
+
+  @keyframes spinright{
+    100% { transform: rotate(360deg); }
+  }
 
 
 
