@@ -27,10 +27,3 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-function hover(element) {
-  element.setAttribute('src', 'images/blob1_active');
-}
-
-function unhover(element) {
-  element.setAttribute('src', 'images/blob2_active');
-}

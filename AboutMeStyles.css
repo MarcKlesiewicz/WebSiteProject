@@ -57,6 +57,7 @@ main{
 .aboutimg{
     flex: 2;
     margin-left: 150px;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
     
 }
 
@@ -67,6 +68,7 @@ main{
     font-size: 20px;
     padding-right: 30px;
     line-height: 30px;
+    animation: 1s ease-out 0s 1 slideInFromRight;
 
 
 }
@@ -97,6 +99,82 @@ h1{
     margin-left: 30px;
     display: inline-block;
 }
+
+.toolbox-item:hover{
+    transform: scale(1.2);
+}
+
+h1 {
+    text-shadow:0 1px 2px #333;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@-moz-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -moz-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -moz-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+  @-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -moz-transform: translateY(-30px);
+      -ms-transform: translateY(-30px);
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -moz-transform: translateY(-15px);
+      -ms-transform: translateY(-15px);
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+  
+  
+  
+  
+  .arrowscroll {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    width: 40px;
+    height: 60px;
+  }
+  
+  .bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
 
 /*
 
@@ -143,4 +221,21 @@ h1{
     color: #1e3246
 
 }
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 
