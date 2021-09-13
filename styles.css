@@ -25,6 +25,7 @@ header{
 .header-container{
     min-height: 100px;
     width: 100%;
+    padding-top: 20px;
     
 }
 
@@ -416,19 +417,39 @@ footer{
 }
 
 .emaillink{
+    width: 82%;
     color: #ece4dc;
-    font-size: 90px;
+    font-size: 80px;
     font-family: 'Source Code Pro', monospace;
+    overflow: hidden; 
+    border-right: .15em solid #FF6C8A; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
 
-.emaillink:hover{
+.sendmail:hover{
     color: #FF6C8A;
 }
 
 .contactfooter{
     text-align: center;
-    
 }
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #FF6C8A; }
+  }
 
 @keyframes spinleft{
     100% { transform: rotate(-360deg); }
