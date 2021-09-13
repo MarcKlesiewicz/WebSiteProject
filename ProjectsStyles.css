@@ -140,9 +140,11 @@ h1{
     border-radius: 5px;
     font-size: 1.1rem;
     border: 2px solid #FF6C8A;
-    margin-right: auto;
-    margin-left: auto;
     
+}
+
+.gitbutton:hover{
+    background-color: #FF6C8A;
 }
 .projectintro h2{
     font-family: 'Source Code Pro', monospace;
