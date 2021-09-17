@@ -25,8 +25,8 @@ header{
 }
 
 .logo{
-    height: 125px;
-    width: 140px;
+    height: 90px;
+    width: 100px;
     margin-left: 25px;
     
 }
@@ -35,7 +35,7 @@ header{
     padding: 10px 25px;
     border-width: 1px;
     margin-left: 20px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: 'Montserrat', sans-serif;
     color: #ece4dc;
 }
@@ -46,10 +46,9 @@ header{
 
 /*MAIN*/
 main{
-    height: 300px;
+    height: 250px;
     display: flex;
     align-items: center;
-    margin-bottom: 60px;
 }
 
 .herobox1{
@@ -64,17 +63,20 @@ main{
     flex: 1;
     height: 500px;
     width: 500px;
-    margin-right: 400px;
-    margin-top: -100px;
+    margin-right: 100px;
 }
 
 .blob1{
     position: absolute;
-    height: 500px;
+    height: 400px;
+    margin-left: -120px;
 }
 
 .blob2{
     position: absolute;
+    margin-left: -150px;
+    margin-top: -50px;
+    height: 500px;
 }
 
 #surround:hover img[id="blob2"]{
@@ -108,12 +110,12 @@ main{
 
 
 .hero2image{
-    height: 500px;
+    height: 400px;
     position: absolute;
     border-radius: 100%;
     filter: grayscale(100%);
-    margin-left: 200px;
-    margin-top: 100px;
+    margin-left: 70px;
+    margin-top: 50px;
 }
 
 .hero2text{
@@ -121,11 +123,13 @@ main{
     height: 100px;
     width: 40%;
     font-family: 'Source Code Pro', monospace;
-    margin-top: 25px;
     color: #ece4dc;
     z-index: +1;
     position: absolute;
     display: none;
+    font-size: 12px;
+    margin-left: -150px;
+    margin-top: -50px;
 }
 
 .herobox2arrow{
@@ -143,13 +147,13 @@ main{
 }
 
 h1{
-    font-size: 3.25rem;
+    font-size: 2.8rem;
     font-family: 'Source Code Pro', monospace;
     margin-bottom: 1rem;
 }
 
 .herobox1 p{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-family: 'Source Code Pro', monospace;
     
 }
@@ -161,14 +165,12 @@ h1{
     display: inline-block;
     margin-top: 50px;
     border-radius: 2px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .gotoprojectbutton:hover{
     background-color: #BB004B;
 }
-
-
 
 .arrow{
     height: 12px;
@@ -389,12 +391,15 @@ footer{
 .emaillink{
     width: 82%;
     color: #ece4dc;
-    font-size: 77px;
+    font-size: 61px;
     font-family: 'Source Code Pro', monospace;
     overflow: hidden; 
     border-right: .15em solid #FF6C8A; 
     white-space: nowrap; 
-    margin: 0 auto; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 200px;
     letter-spacing: .15em;
     animation: 
     typing 3s steps(40, end),
@@ -411,7 +416,6 @@ footer{
 
 .contactfooter{
     text-align: center;
-    margin-top: -50px;
 }
 
 /*ABOUT*/
