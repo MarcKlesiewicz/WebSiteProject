@@ -9,7 +9,9 @@ main{
 .aboutimg{
     flex: 2;
     margin-left: 100px;
-    animation: 1s ease-out 0s 1 slideInFromLeft;    
+    /*
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    */    
 }
 
 .abouttext{
@@ -19,7 +21,9 @@ main{
     font-size: 16px;
     padding-right: 30px;
     line-height: 22px;
+    /*
     animation: 1s ease-out 0s 1 slideInFromRight;
+    */
 }
 
 h1{
@@ -68,8 +72,8 @@ h1{
     font-family: 'Source Code Pro', monospace;
     color: #1e3246;   
   }
-  
   /*Lide animation*/
+  /*
   @keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);
@@ -86,6 +90,7 @@ h1{
       transform: translateX(0);
     }
   }
+  */
   
   /*Arrow bouncing animation*/
   @-moz-keyframes bounce {
