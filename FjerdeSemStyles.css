@@ -1,0 +1,28 @@
+.blogpost{
+    width: 70%;
+    background-color: #ece4dc;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding-left: 4px;
+
+
+}
+
+.blogcontext{
+    font-family: 'Montserrat', sans-serif;
+    color: #0E1A26;
+}
+
+ul.a {
+    list-style-type: circle;
+    font-family: 'Montserrat', sans-serif;
+    color: #0E1A26;
+}
+
+a{
+    
+    color: #0E1A26;
+    text-decoration: underline;
+}
+
