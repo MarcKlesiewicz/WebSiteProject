@@ -348,12 +348,12 @@
 
         <h5 class="blogcontext">17-02-2022</h5>
         <p class="blogcontext"> De sidste to uger har jeg brugt på at blive bekendt med nogle af de fundamentale
-            principper indenfor Flutter og Dart. <br> Jeg har startet med at læse de første to sektioner af Flutter
-            Apprentice, som er en bog jeg har fundet gennem anbefalinger på diverse forums. Indtil videre har jeg fundet
+            principper indenfor Flutter og Dart. <br> Jeg har startet med at læse de første to sektioner af <b>Flutter
+                Apprentice</b> , som er en bog jeg har fundet gennem anbefalinger på diverse forums. Indtil videre har jeg fundet
             den utrolig hjælpsom til setup i VS Code - samt lære grundkoncepterne til selv at lave en applikation med
             Flutter og Dart. <br><br>
 
-            Den først konklusion jeg har kunne drage, er at i Flutter er ALT et widget..
+            Den først konklusion jeg har kunne drage, er at i Flutter er ALT et widget... <br>
             Et widget er ifølge Flutters egen dokumentation, et element i en Flutter app som enten beskriver hvordan
             brugergrænseflade ser ud eller reagere ved interaktion. Der findes 14 widget hovedkategorier - baseret på
             den funktionalitet de hver især forsyner appen med. <br>
@@ -455,45 +455,44 @@
         <p class="blogcontext">
 
         <ol class="blogcontext">
-            <li>Alle Flutter applikationer starter ligesom mange andre med en main metode, som kalder runApp metoden med
-                en widget som parameter. Den fortæller Flutter i dette tilfælde at RecipeApp er vores top-level app
+            <li>Alle Flutter applikationer starter ligesom mange andre med en <b>main</b> metode, som kalder <b>runApp</b> metoden med
+                en widget som parameter. Den fortæller Flutter i dette tilfælde at <b>RecipeApp</b> er vores top-level app
                 eller root widget. <br><br>
             </li>
             <li>RecipeApp er den widget jeg bruger som indgangsvinklen til resten af appens komponenter. Så her kan jeg
-                definere ting som appens titel og tema. (Denne widget er af type Stateless, som jeg vil redegøre for i
+                definere ting som appens titel og tema. (Denne widget er af type <b>Stateless</b>, som jeg vil redegøre for i
                 et senere indlæg). <br> <br>
             </li>
-            <li>MaterialApp er en klasse som fortæller os at appen bruger material design, som er et design system
+            <li> <b>MaterialApp</b> er en klasse som fortæller os at appen bruger <b>material design</b>, som er et design system
                 udviklet af Google. Det indebære nogle fælles principper, komponenter og styling, som er med til at
                 hjælpe os udviklere med at bygge ensartet bruger oplevelser på tværs af platforme. <br>
-                Med dens home property, der tager et widget som parameter, kan jeg sætte default routen når appen åbnes.
+                Med dens <b>home</b> property, der tager et widget som parameter, kan jeg sætte default routen når appen åbnes.
                 <br> <br>
             </li>
-            <li>Homepage er det widget som skal håndtere alt hvad vi kommer til at se på "startsiden". Det vil være de
-                underliggende widget som definere udseendet, inde i build metoden.<br> <br>
+            <li> <b>Homepage</b> er det widget som skal håndtere alt hvad vi kommer til at se på "startsiden". Det vil være de
+                underliggende widget som definere udseendet, inde i <b>build</b> metoden.<br> <br>
             </li>
-            <li>Et af de mest anvendte widgets til at implementere et basic visuel layout er Scaffold. Kigger man på
+            <li>Et af de mest anvendte widgets til at implementere et basic visuel layout er <b>Scaffold</b>. Kigger man på
                 dens properties vil man kunne genkende mange visuelle elementer som vi er en standard inden for apps.
                 Såsom AppBar, BottomAppBar, FloatingActionButton og Drawer<br> <br>
             </li>
-            <li>Padding er et godt eksempel på at i Flutter er alt en widget. Så i kontrast til web development med HTML
+            <li><b>Padding</b> er et godt eksempel på at i Flutter er alt en widget. Så i kontrast til web development med HTML
                 og CSS, hvor padding er en property du tildeler et UI element. Så er padding i Flutter sit eget widget,
-                som du "wrapper" uden om et eller flere widgets.<br> <br>
+                som du <i>"wrapper"</i> uden om et eller flere widgets.<br> <br>
             </li>
-            <li>Et Listview widget kan ses lidt som et for loop, hvor vi specificere en længde og et "item" vi gerne vil
+            <li>Et <b>Listview</b> widget kan ses lidt som et for loop, hvor vi specificere en længde og et "item" vi gerne vil
                 bygge.<br> <br>
             </li>
-            <li>Det item er et recipeCard widget som består af et Image og Text widget wrappet i en Column widget,
-                wrappet i et Card widget. recipeCard er wrappet i en GestureDetector widget som vil navigere os ind på
-                en ny page - RecipeDetail.<br> <br>
+            <li>Det item er et <b>recipeCard</b> widget som består af et <b>Image</b> og <b>Text</b> widget wrappet i en <b>Column</b> widget,
+                wrappet i et <b>Card</b> widget. recipeCard er wrappet i en <b>GestureDetector</b>  widget som vil navigere os ind på
+                en ny page - <b>RecipeDetail</b> .<br> <br>
             </li>
         </ol>
 
         </p>
 
         <p class="blogcontext">
-            Det sidste punkt er et godt eksempel på hvor indviklet det kan være at forklare Flutters widget struktur
-            (også kaldt widget tree) når først man arbejder med mange elementer.
+            Det sidste punkt er et godt eksempel på hvor indviklet det kan være at forklare Flutters widget struktur, også kaldt <b>widget tree</b>, når først man arbejder med mange elementer.
             Forneden har jeg to eksempler på hvordan den gennemgået kodes widget tree kan visualiseres.
 
         </p>
