@@ -4,7 +4,8 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  padding-left: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
   padding-bottom: 8px;
   padding-top: 2px;
   height: fit-content;
@@ -70,6 +71,17 @@ a {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   background-color: #6cd5ff;
+  padding: 5px 11px;
+  width: fit-content;
+  color: #0e1a26;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.databaseLabel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  background-color: #6cff85;
   padding: 5px 11px;
   width: fit-content;
   color: #0e1a26;

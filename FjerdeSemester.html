@@ -74,7 +74,7 @@
 
             Som mit andet emne har jeg valgt <b>Database</b> med et særligt fokus på <b>Blockchain Teknologi</b>. Så
             først og fremmest vil jeg fordybe mig i database koncepter og demonstrere brugen af Google Firebase og
-            MongoDb i semester-projektet. <br>
+            Hive. <br>
             Men udover det vil jeg dykke ned i det alternative potentiale der findes i Blockchain, ved at undersøge
             logikken bag, hvordan eksisterende virksomheder praktisere brugen af det, hvorfor det anses som
             revolutionerende teknologi og hvordan det evt. kan inkorporeres i en anderledes use case. <br><br>
@@ -283,8 +283,6 @@
 
     </div>
 
-    <!-- TODO: andet emne indlæg -->
-
     <div class="blogpost">
 
         <h2 class="blogcontext">Flutter/Dart introduktion</h2>
@@ -299,7 +297,7 @@
             relatere til udviklingen af selve produktet. Jeg (+ et teammedlem) vil under forløbet være udelukkende
             ansvarlige for udvikling af produktets frontend, som vil blive lavet med Flutter og Dart. <br><br>
 
-            <i>Dette er min nuværende forståelse af Flutter og Dart (11/2/2022).</i><br><br>
+            <i>Dette er min nuværende forståelse af Flutter og Dart (11/2/2022).</i><br>
 
         <div style="width: 100%; display: flex;">
 
@@ -330,6 +328,59 @@
 
                 <img src="images/flutterio-ar21.svg" alt="" style="display: block; height: 200px;">
                 <img src="images/dartlang-ar21.svg" alt="" style="display: block; height: 200px;">
+
+            </div>
+
+        </div>
+
+        </p>
+
+    </div>
+
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Database introduktion</h2>
+
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">14-02-2022</h5>
+        <p class="blogcontext">
+            <b>Blockchain</b> var et buzzword som jeg stødte på mange gange i løbet af sidste år - ofte i kontekst til kryptovaluta og NFT'er.  Efter at have researchet på emnet kunne jeg fornemme at der var mange som så denne teknologi som revolutionerende og havde et kæmpe potentiale til at ændre måden vi interagere med hinanden på nettet.<br><br>
+
+            <i>Dette er min nuværende forståelse af Blockchain teknologi (14/02/2022).</i><br><br>
+
+            Blockchain er en teknologi som havde sin debut tilbage i 2009 da Satoshi Nakamoto (som man ikke ved om er en person eller et team) lancerede verdens første kryptovaluta, Bitcoin. <br> 
+            Bitcoins blockchains formål er at bogføre transaktioner af bitcoin mellem brugere og kan derfor ses som et kæmpe regneark. Men det som kendetegne en blockchain er at den er <b>decentraliseret</b>. Det vil sige at hvem som helst vil kunne tilgå det her "regneark" og validere om en transaktion har fundet sted. I kontrast til en <b>centraliseret</b> database som typisk er eget af en virksomhed eller regering, drives en decentraliseret database af <b>peer-to-peer</b> netværk af enheder fordelt over hele verden. <br>
+            Det helt unikke ved en blockchain at alle transaktioner vil være lagret i "blocks". En block kan ca. opbevarer 3500 transaktioner - og ved max kapacitet generere, ved brug af en hashing algoritme, en unik indentifier som den næste block i kæden vil kende til. På den måde anses en blockchain som uforanderlig, fordi at den mindste ændring af en transaktion vil medfører en helt anden indentifier. <br>
+            For ikke at manuelt skulle sidde og validere en hel blockchain, har man udviklet <b>konsensusmekanismer</b>. Der findes forskellige former for konsensus, men fællesnævneren for dem er at det et stykke hardware som udfører nogle matematiske kalkulationer der hurtigt kan validere en blocks "ægthed". <br> <br>
+
+            <b>Datebase + konsensus = blockchain</b> <br><br>
+
+        <div style="width: 100%; display: flex;">
+
+            <div style="width: 100%;">
+
+                <p class="blogcontext">
+                    Men før jeg begynder at tage fat i blockchain, vil jeg gerne eksperimentere med nogle databaser som typisk bliver brugt til app udvikling. Så det første jeg har gjorde var at undersøge hvilket muligheder der var. <br> <br>
+                    Konklusion: der er utrolig mange og på de fleste forums skriver folk at valget af din database afhænger utrolig meget af opgaven/appen hvor den skal bruges. <br><br>
+
+                    Det giver naturligvis god mening. Så derfor ville jeg gerne finde en database som var alsidig ift. usecases den bruges i og så skulle den være veldokumenteret. <br>
+                     En som jeg havde hørt om før og som også blev nævnt flere gange i Flutter forums var <b>Google Firebase</b>. Den bliver beskrevet som en meget skalerbart løsning til både persistens, authentication og cloud messaging (alle sammen funktionaliteter som skal være i projekt-produktet). <br>
+                    Derudover ville det give god mening at der synergi mellem Firebase og Flutter, eftersom det er udviklet af den samme virksomhed. <br> <br>
+
+                    Ved brug af Firebase er mit data lagret på Googles server - så jeg kunne også godt tænke mig at undersøge et alternativ til det. <br> Til det har jeg fundet en anden persitens løsning som hedder <b>Hive</b>. Den bliver beskrevet som en avanceret lokal NoSQL database som bliver implementeret direkte i frontenden og skulle have enorm hurtig eksekveringstid.
+                    
+
+                </p>
+
+            </div>
+
+            <div style="width: 70%; text-align: center;">
+
+                <img src="images/Firebase_logotext.png" alt="" style="display: block; width: 500px; margin-bottom: 50px; margin-top: 100px;">
+                <img src="images/hive_logotext.png" alt="" style="display: block; width: 400px;">
 
             </div>
 
