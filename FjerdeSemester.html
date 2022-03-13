@@ -553,8 +553,17 @@
             <img src="images/widget_tree_box.png" alt="" style="height: 400px;">
         </div>
 
+        <hr>
+
+            <h5 class="blogcontext">Kilder</h5>
+            
+                <ul class="blogcontext">
+                    <li>Flutter Apprentice - Sektion 1</li>
+                </ul>
+
     </div>
-    <div id="new" class="blogpost">
+
+    <div  class="blogpost">
 
         <h2 class="blogcontext">1. Firebase projekt og tutorial review </h2>
         <div class="databaseLabel" style="margin-right: 5px;">
@@ -637,6 +646,125 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
 
         </p>
 
+        <hr>
+
+            <h5 class="blogcontext">Kilder</h5>
+            
+                <ul class="blogcontext">
+                    <li><a href="https://firebase.flutter.dev/docs/overview/ ">https://firebase.flutter.dev/docs/overview/ </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase">https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase</a></li>
+                </ul>
+
+
+
+    </div>
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">Stateless vs. Statefull</h2>
+        <div class="frontendLabel" style="margin-right: 5px;">
+            <b>Frontend</b>
+        </div>
+
+        <h5 class="blogcontext">24-02-2022</h5>
+        <p class="blogcontext">
+            I Flutter eksistere der to former for widgets, stateful widgets og stateless widgets. <b>State</b> er et term som jeg ofte støder på når jeg har læst om app udvikling og især <b>state-management</b> anses som en absolut must hvis du skal være en app udvikler. <br> Men hvad er state? <br><br>
+
+            En apps state kan defineres som hvad end der eksistere i appens hukommelse, mens den køre. Dette kan være alt fra konfigurerings filer, datamodels, app assests og naturligvis alle widgets som udgør brugergrænsefladen. Nogle gange vil vi gerne kunne ændre staten af vores app i form af fremvisning af specifikke UI elementer eller ændring af et widgets variabler i run time - og andre gange er det vigtigt at de ikke kan ændre sig og forholder sig statiske under run time. <br><br>
+
+            En <b>Stateless widget</b> gør præcis det sidst nævnte. Når denne form for widget bliver bygget, vil den, samt dens indhold, være uforanderlig og kan ikke ændre på appens state. De bruges typisk til at fremvise elementer og information - så nogle eksempler på hyppigt brugte stateless widgets vil være Text, Icon, Dialog, Card, SnackBar. De er nyttige til når brugergrænsefladen som du beskriver ikke er afhængige af andre parametre end dem du giver til at starte med og ikke skal ændre på appens state. <br><br>
+
+            Hvis vi derimod skal kunne interagere med appens state under run time, skal man bruge <b>Statefull widget</b>. Denne form for widget er dynamisk og kan ændre sit udseende som et respons til udløst event af brugeren eller modtagelse af data. Textfield, Checkbox, RadioButton og Sliders er gode eksempler på statefull widgets, fordi de kan konstant ændre under et widgets livscyklus. <br>
+            Et widgets state er opbevaret i et <b>state objekt</b>, som separere widgetens state fra dens udseende. For at kunne aktivere ændringen af et widgets state og derved opdatere dens udseende, kalder man på et state objektets <b>setState()</b> funktion. Den fortæller frameworket at "gentegne" widget'et fra ny og derved præsentere brugen for dens nye state og de tilsvarende ændringer. <br><br>
+
+            For at demonstere hvordan disse to former for widgets fungere har jeg lavet en simple applikation som består af noget tekst, som er vores stateless widget og en checkbox som vores statefull widget.  
+
+        </p>
+
+        <div style="width: 100%; display: flex;">
+
+            <div style="text-align: center; width: 100%; padding-top: 60px;">
+                <img src="images/stateGreen.png" alt="" style="height: 350px;">
+                <img src="images/stateRed.png" alt="" style="height: 350px;">
+            </div>
+
+            <div>
+                <pre>
+                    <code>
+                        <p>
+                            //1
+                            class ColorContainer extends StatefulWidget {
+                                const ColorContainer({Key? key}) : super(key: key);
+                              
+                                @override
+                                State<ColorContainer> createState() => _ColorContainerState();
+                              }
+                              
+                              class _ColorContainerState extends State<ColorContainer> {
+                                //2  
+                                bool redColor = false;
+                              
+                                @override
+                                Widget build(BuildContext context) {
+                                  return Container(
+                                    //3 
+                                    color: redColor ? Colors.red : Colors.green,
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                        //4
+                                          const Text(
+                                            'Red',
+                                            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                                          ),
+                                          Transform.scale(
+                                            scale: 1.4,
+                                            //5
+                                            child: Checkbox(
+                                                value: redColor,
+                                                onChanged: (bool? newValue) {
+                                                  //6
+                                                  setState(() {
+                                                    redColor = newValue!;
+                                                  });
+                                                }),
+                                          )
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+        </div>
+
+        <p class="blogcontext">
+
+            <ol class="blogcontext">
+                <li>Jeg har startet med at lave et widget <b>ColorContainer</b> som nedarver fra StatefulWidget klasse. På denne måde tilkendegiver jeg at i dette widget vil jeg kalde setState funktionen på et af mine widgets<br><br>
+                </li>
+                <li>Lidt ligesom en klasse i andre objekt orienteret sprog kan man definere variabler inde i sine klasser/widgets - dettet gør man oftes inden <b>build</b> metoden. I dette eksempel instantiere jeg min variable <b>redColor</b> med det samme. Men i nogle tilfælde vil man først have behov for at instantier dem senere. Her vil man bruge <b>late</b> keywordet og en <b>initState</b> metode. Begge vil blive dækket i et senere oplæg.<br><br>
+                </li>
+                <li>Som det næste angiver jeg farven som min Container skal have. Her bruger jeg variablen redColor i en <b>Ternary Conditional Operator</b>, som er en forsimplet måde at lave en en if else statement. Hvis redColor er true sættets containers color til rød, hvis false, grøn.<br><br>
+                </li>
+                <li>Text er som tidligere nævnt en stateless widget. Her har jeg angivet nogle specifikke værdier for widgetens variabler text, fontSize og fontWeight. Efter ColorContainer er bygget, vil disse variabler være uforanderlige.<br><br>
+                </li>
+                <li>Checkbox er en statefull widget og kræver at man angiver to variabler: value og onChanged.Inputtet for value skal være en bool datatype og vil typisk hedde isChecked, eftersom det er det vi man normalt vil registerer med en checkbox. onChanged tager imod en void funktion med en bool som parameter <b>(newValue)</b> og lytter på hvis den ændre sig<br><br>
+                </li>
+                <li>Når den så ændre sig (ved check eller uncheck) kalder jeg setState funktionen som sætter redColor til at være lige med newValue. Efter setState er blevet kaldt vil hele ColorContainer blive gentegnet - og hvor i step 3 redColor var false, vil den nu være true<br><br>
+                </li>
+                
+            </ol>
+    
+            </p>
+
+            <hr>
+
+            <h5 class="blogcontext">Kilder</h5>
+            
+                <ul class="blogcontext">
+                    <li><a href="https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app">https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp">https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp</a></li>
+                    <li><a href="https://docs.flutter.dev/development/ui/interactive">https://docs.flutter.dev/development/ui/interactive</a></li>
+                </ul>
 
 
     </div>
