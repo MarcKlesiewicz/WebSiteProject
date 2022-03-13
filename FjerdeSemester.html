@@ -390,7 +390,7 @@
 
     </div>
 
-    <div id="new" class="blogpost">
+    <div class="blogpost">
 
         <h2 class="blogcontext">Alt er et widget</h2>
         <div class="frontendLabel" style="margin-right: 5px;">
@@ -552,6 +552,92 @@
             <img src="images/widget_tree_flutter_exten.png" alt="" style="height: 400px;">
             <img src="images/widget_tree_box.png" alt="" style="height: 400px;">
         </div>
+
+    </div>
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">1. Firebase projekt og tutorial review </h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">21-02-2022</h5>
+        <p class="blogcontext"> Efter at jeg er blevet mere komfortable med nogle af de fundamentale koncepter indenfor Flutter. Ville jeg gerne i gang med at prøver at implementere backend logik ved hjælp af Firebase. <br>
+            Mit mål var derfor i første omgang at kunne formidle til mit Database Guild,  nogle af de egenskaber Firebase kan tilbyde og samtidig demonstrere det i en live applikation. <br><br>
+            
+            På forhånd havde jeg set nogle videoer på Youtube omkring Firebases koncept, som omhandler meget mere en bare opbevaring af data. Hele platformen er bygget op omkring individuelle services som du kan tilkoble til din applikation efter behov. <br><br>
+            
+            Nedenstående billede viser hvilket services de tilbyder - og de markerede er dem jeg har tænkt mig at eksperimentere med.
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/Firebase_services.png" alt="" style="height: 300px;">
+        </div>
+
+        <p class="blogcontext"> For at få den bedste introduktion til Firebase og med Flutter, fandt jeg en separat sektion på deres hjemmeside, ved navn <b>FlutterFire</b> (opfindsomt), der lagde op til meget af det som jeg forventede at skulle bruge. <br><br> 
+            Jeg gik i gang med deres anbefalede introduktions-tutorial for nybegyndere <a href="https://firebase.google.com/codelabs/firebase-get-to-know-flutter#0">Codelab: Get to know Firebase for Flutter</a>, hvor jeg gerne skulle ende ud med en app, som brugte Authentication, Cloud Firestore og Cloud Messaging. <br><br>
+            
+            Man kan enten vælge at se en video som gennemgår stepsene eller kan man selv læse dem, jeg valgte en blanding. Første tre steps var ret lige til og gennemgik primært opsætningen af projekter i VS Code og Firebase - eftersom at jeg allerede havde prøvet det før lykkede denne del uden større problemer. <br><br>
+            Step fire, hvor man skal til at configurer sine VS Code projekt med sin Firebase projekt, går det op for mig at der ikke var en præcis sammenhæng mellem videoerne og teksten til stepsene.  Derudover blev der flere steder brugt forældet kode syntax, som resulterede i mange timer refaktorering og problemløsning på ting som ikke blev dækket i stepsene. <br><br>
+            
+            Tutorialen var en meget copy-paste gennemgang af nogle af Firebases features, forstået på den måde at ham som fortæller/koder løber til tider ret let over nogle komplicerede implementationer for at kunne nå det hele. Derfor ser jeg ikke denne tutorial som en "code along", men mere en "hold-på-hat-og-briller-gennemgang", for at demonstere hvor hurtigt man kan implementere Firebase i sit projeket. <br> <br>
+            De har nogle mere dybdegående tutorials for de enkelte services, som vil være det næste jeg skal se på. <br>
+            
+            Til gengæld er det altid forløsning at få udviklet noget som virker - og jeg fik, på trods af mange udfordringer, lavet en applikation som kommunikere med mit Firebase Projekt.
+
+        </p>
+
+        <div style="text-align: center; width: 100%; ">
+            <img src="images/databaseG1.png" alt="" style="height: 400px;">
+        </div>
+
+        <p class="blogcontext">
+            Det er en ret simple applikation som fremviser et event, der til at starte med kun har nogle informationer om eventet. Men brugerne af appen skal også kunne interagere med eventet, så det første jeg gjorde var at tilføje en Email/Password sign-in provider i mit Firebase panel.
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/Firebase_signin.png" alt="" style="height: 250px;">
+        </div>
+
+        <p class="blogcontext">
+            Jeg vil i appen kunne administrere baseret på brugeren input om den indtastede mail tilhøre en eksisterende bruger og opdatere UI'et der til.
+            Når brugeren så har oprettet sig og/eller logget ind, vil der blive fremvist to andre features. En tilmelding og en chat.
+
+        </p>
+
+        <div style="text-align: center; width: 100%; ">
+            <img src="images/databaseG3.png" alt="" style="height: 400px;">
+            <img src="images/databaseG2.png" alt="" style="height: 400px;">
+        </div>
+
+        <p class="blogcontext">
+            Begge dele har jeg forbundet til en Firestore Database. Den består af to separeret collections, som er en samling af "dokumenter". Så hver gang en bruger interagere med tilmeldingen eller chatten, vil der enten blive tilføjet nye dokumenter til kollektionerne eller ændret på dokumenter i kollektionerne. Alt dette sker live når appen køres. 
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/Firebase_firestore.png" alt="" style="height: 250px;">
+        </div>
+
+        <p class="blogcontext">
+            Når man starter en ny Firestore collection, vil der ikke være nogle begrænsninger for hvem der kan læse og skrive til databasen gennem appen - jeg forstiller mig at det er for testmæssige årsager. Det vil naturligvis være muligt at begrænse adgangen til din databasen gennem UI'et, så lidt ligesom jeg gemt noget fra personer som ikke er logget ind.
+Men for være helt sikker på at uautoriseret bruger ikke benytter databasen kan man opstille "rules" for sine kollektioner.
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/Firebase_firestore_rules.png" alt="" style="height: 250px;">
+        </div>
+
+        <p class="blogcontext">På billedet ovenfor kan man se hvilket rules jeg har opstillet for guestbook (linje 4) og attendess (linje 12). <br> På linje 5 tillader jeg adgang til at læse fra databasen, hvis den modtaget read anmodning ikke er lige med null. Dette er måske ikke den bedste løsning, fordi jeg sikre mig egentligt ikke imod at anmodningen kommer fra en oprettet bruger i projektet. Så hvis man kunne komme udenom login/opret formularen, og på en måde få sendt hvilket som helst id med i anmodningen, ville fremvisningen af, i dette tilfælde chatten, kunne lade sig gøre. <br><br>
+
+Det gør jeg til gengæld fra linje 6 til 10, hvor jeg opstiller reglerne for anmodninger som skriver til databasen. Her sikre jeg at det brugerId som kommer med fra anmodning stemmer overens med en autoriseret bruger i projektet. <br><br>
+
+Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Firestore collection, kan ses på linje 13. Dette vil typisk være defaulten for en collection og gør det muligt for alle i appen at få fremvist, i dette tilfælde, hvor mange som deltager til eventet. <br><br>
+
+        </p>
+
+
 
     </div>
 
