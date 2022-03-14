@@ -769,7 +769,7 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
 
     </div>
 
-    <div id="new" class="blogpost">
+    <div class="blogpost">
 
         <h2 class="blogcontext">Rento Update #1</h2>
         <div class="productLabel" style="margin-right: 5px;">
@@ -800,6 +800,88 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
     Efterfølgende demonstrerede de dele af appen som var blevet færdigudviklet: Login/registerings flow, opret produkt flow og den administrative del. PO udtrykte stor tilfredshed med resultatet og havde ikke nogle indvendinger på det endelige design. Dette skyldes blandt andet også Little Giants konstante kommunikation med PO gennem Figma, hvor de har mulig for at komme med feedback på designet mens det laves.
 </p>
 
+
+    </div>
+
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">Hvad er en NoSQL database?</h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">04-03-2022</h5>
+        <p class="blogcontext"> 
+            Jeg har tidligere under mit uddannelsesforløb stiftet kendskab med MSSMS som er Micosofts Relationelle database. Her arbejdede jeg med data som havde relationer til hinanden og hvor jeg på tværs af tabels kunne fremvise informationer defineret af queries.
+            Det er i høj grad en struktureret måde at arbejde med data på og jeg var derfor også en anelse skeptisk da jeg hørte omkring NoSQL databaser. <br><br>
+
+            Fordi NoSQL er det som betegnes som shema-less. Det vil sige at hvor med en SQL database som inddeler sin data i tabels og de tabels kan forbindes ved hjælp af foreign keys - der opbevare en NoSQL databaser alt data samlet et sted. Der er ikke nogle restriktioner på database-niveauet hvorvidt den modtaget datatype er korrekt og hvornår den bliver indsat i database. Du behøves ikke engang at udfylde de samme felter som dine andre objekter i databasen, faktisk behøves det ikke engang at være det samme objekt. <br>
+            Så hvorfor vil man bruge noget så ustruktureret? <br><br>
+
+            NoSQL oprindelse går tilbage til 60'erne, men det var i de sene 2000 da omkostningerne for data opbevaring begyndte at falde dramatisk.
+
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/dataCost.png" alt="" style="height: 350px;">
+        </div>
+
+        <p class="blogcontext">
+            Billedet ovenfor illustrere prisforløbet på opbevaring af data per megabit de sidste 60 år. Med denne markante ændring af pris havde udviklere ikke længere behov for at lave komplekse og svære-at-vedligeholde data modeller for at undgå duplikering af data. <br><br>
+
+            Fordi med en NoSQL vil man havde svært ved at undgå duplikering på grund af de manglende tabel relationer. Dette betød dog, ifølge MongoDB, at udviklerne kunne arbejde langt mere effektivt og fleksibelt fordi der ikke længere var en struktur som de skulle overholde, samtidig skulle de ikke længere være bekymret for ændringer af objekter og systemkrav. <br><br>
+
+            De fire mest almindelig NoSQL databaser er:
+
+            <ul>
+                <li><b>Key-value</b> database er en af de mere simple typer. Her parres nøgler og værdier ved hjælp af et hashtable, på den måde kan man identificere en nøgles ukendte værdi.
+                </li>
+                <li><b>Document</b> database som opbevare data i samlinger som består af dokumenter lignede JSON objekter. Her består hvert dokument af fields og values, som beskriver en variable og dens datatype. (Cloud Firestore)
+
+                </li>
+                <li><b>Wide-column</b> database opbevare data i kolonner, brede kolonner og kolonnefamilier. Dette anses som en effektiv måde at lave forespørgsler på data på tværs af rækker i bestemte kolonner.
+
+                </li>
+                <li><b>Graph</b> database opbevare data i nodes og edges. Nodes indeholder typisk information omkring mennesker, steder og ting, mens edges indeholder information omkring relationerne mellem nodes
+                </li>
+            </ul>
+        </p>
+
+        <p class="blogcontext">
+            I følge <a href="https://www.youtube.com/watch?v=v_hR4K4auoQ&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=1&ab_channel=Firebase">Get to know Cloud Firestore part 1</a>, kommer NoSQL til at harmonere godt med mit andet emne frontend programmering, hvor jeg begyndt at arbejde mere med validering af bruger input. <br> De fortæller at når man bruger NoSQL vil man skulle "kode defensivt" på client side. Fordi selvom du kan opstille security rules for hvilken data du indsætter hvor, så er der i virkeligheden ikke nogen garanti for på database niveauet hvilken data du modtager.
+            Derfor er det op til brugergrænsefladen at navigere brugerens input over imod det ønskede resultat. <br><br>
+
+            Noget som også adskiller NoSQL fra en almindelig SQL database er dens egenskab til nemt at distribuere sin data over flere maskiner.
+
+
+        </p>
+        
+        <div style="text-align: center; width: 100%;">
+            <img src="images/database_scaling.png" alt="" style="height: 350px;">
+        </div>
+        
+        <p class="blogcontext">
+            Lad os sige vi har en SQL database som opbevare noget data for vores Rento projekt - det kunne være brugere, produkter, beskeder osv. Forhåbentligt vil der komme et større antal af brugere eller produkter jo længere tid appen er live, og på et eller andet tidspunkt vil det være nødvendigt at skalere vores database for at få mere plads. <br> <br>
+            Med en almindelig SQL database ville det typisk være nødvendigt at anskaffe en større og kraftigere maskine for at have sin database kørende - dette kaldes for <b>vertikal skalering</b>. <br>
+            Derimod med en NoSQL database, som Fireastore, der skalere den <b>horisontalt</b>, forstået på den måde at når databasen har brug for mere plads vil den kunne distribuere sit data over flere servere. <br><br>
+
+
+            Der findes naturligvis fordele og ulemper ved begge former for databaser - og specifikke scenarier hvor den ene egner sig bedre end den anden. Men inden for mobil applikation udvikle, hvor reads fra databasen typisk prioriteres højere end writes, vil det åbenlyse valg være en NoSQL database. 
+
+        </p>
+
+        <hr>
+
+        <h5 class="blogcontext">Kilder</h5>
+            
+                <ul class="blogcontext">
+                    <li><a href="https://www.mongodb.com/nosql-explained">https://www.mongodb.com/nosql-explained</a></li>
+                    <li><a href="https://azure.microsoft.com/da-dk/overview/nosql-database/
+                        ">https://azure.microsoft.com/da-dk/overview/nosql-database/
+                    </a></li>
+                    <li><a href="https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data">https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data</a></li>
+                </ul>
 
     </div>
 
