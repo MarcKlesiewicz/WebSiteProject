@@ -48,7 +48,7 @@
         </h2>
 
 
-        <a href="#new" class="projectnavbuttons" >Seneste oplæg</a>
+        <a href="#new" class="projectnavbuttons">Seneste oplæg</a>
         <a href="#" class="projectnavbuttons">Litteraturliste</a>
 
 
@@ -347,14 +347,27 @@
 
         <h5 class="blogcontext">14-02-2022</h5>
         <p class="blogcontext">
-            <b>Blockchain</b> var et buzzword som jeg stødte på mange gange i løbet af sidste år - ofte i kontekst til kryptovaluta og NFT'er.  Efter at have researchet på emnet kunne jeg fornemme at der var mange som så denne teknologi som revolutionerende og havde et kæmpe potentiale til at ændre måden vi interagere med hinanden på nettet.<br><br>
+            <b>Blockchain</b> var et buzzword som jeg stødte på mange gange i løbet af sidste år - ofte i kontekst til
+            kryptovaluta og NFT'er. Efter at have researchet på emnet kunne jeg fornemme at der var mange som så denne
+            teknologi som revolutionerende og havde et kæmpe potentiale til at ændre måden vi interagere med hinanden på
+            nettet.<br><br>
 
             <i>Dette er min nuværende forståelse af Blockchain teknologi (14/02/2022).</i><br><br>
 
-            Blockchain er en teknologi som havde sin debut tilbage i 2009 da Satoshi Nakamoto (som man ikke ved om er en person eller et team) lancerede verdens første kryptovaluta, Bitcoin. <br> 
-            Bitcoins blockchains formål er at bogføre transaktioner af bitcoin mellem brugere og kan derfor ses som et kæmpe regneark. Men det som kendetegne en blockchain er at den er <b>decentraliseret</b>. Det vil sige at hvem som helst vil kunne tilgå det her "regneark" og validere om en transaktion har fundet sted. I kontrast til en <b>centraliseret</b> database som typisk er eget af en virksomhed eller regering, drives en decentraliseret database af <b>peer-to-peer</b> netværk af enheder fordelt over hele verden. <br>
-            Det helt unikke ved en blockchain at alle transaktioner vil være lagret i "blocks". En block kan ca. opbevarer 3500 transaktioner - og ved max kapacitet generere, ved brug af en hashing algoritme, en unik indentifier som den næste block i kæden vil kende til. På den måde anses en blockchain som uforanderlig, fordi at den mindste ændring af en transaktion vil medfører en helt anden indentifier. <br>
-            For ikke at manuelt skulle sidde og validere en hel blockchain, har man udviklet <b>konsensusmekanismer</b>. Der findes forskellige former for konsensus, men fællesnævneren for dem er at det et stykke hardware som udfører nogle matematiske kalkulationer der hurtigt kan validere en blocks "ægthed". <br> <br>
+            Blockchain er en teknologi som havde sin debut tilbage i 2009 da Satoshi Nakamoto (som man ikke ved om er en
+            person eller et team) lancerede verdens første kryptovaluta, Bitcoin. <br>
+            Bitcoins blockchains formål er at bogføre transaktioner af bitcoin mellem brugere og kan derfor ses som et
+            kæmpe regneark. Men det som kendetegne en blockchain er at den er <b>decentraliseret</b>. Det vil sige at
+            hvem som helst vil kunne tilgå det her "regneark" og validere om en transaktion har fundet sted. I kontrast
+            til en <b>centraliseret</b> database som typisk er eget af en virksomhed eller regering, drives en
+            decentraliseret database af <b>peer-to-peer</b> netværk af enheder fordelt over hele verden. <br>
+            Det helt unikke ved en blockchain at alle transaktioner vil være lagret i "blocks". En block kan ca.
+            opbevarer 3500 transaktioner - og ved max kapacitet generere, ved brug af en hashing algoritme, en unik
+            indentifier som den næste block i kæden vil kende til. På den måde anses en blockchain som uforanderlig,
+            fordi at den mindste ændring af en transaktion vil medfører en helt anden indentifier. <br>
+            For ikke at manuelt skulle sidde og validere en hel blockchain, har man udviklet <b>konsensusmekanismer</b>.
+            Der findes forskellige former for konsensus, men fællesnævneren for dem er at det et stykke hardware som
+            udfører nogle matematiske kalkulationer der hurtigt kan validere en blocks "ægthed". <br> <br>
 
             <b>Datebase + konsensus = blockchain</b> <br><br>
 
@@ -363,15 +376,26 @@
             <div style="width: 100%;">
 
                 <p class="blogcontext">
-                    Men før jeg begynder at tage fat i blockchain, vil jeg gerne eksperimentere med nogle databaser som typisk bliver brugt til app udvikling. Så det første jeg har gjorde var at undersøge hvilket muligheder der var. <br> <br>
-                    Konklusion: der er utrolig mange og på de fleste forums skriver folk at valget af din database afhænger utrolig meget af opgaven/appen hvor den skal bruges. <br><br>
+                    Men før jeg begynder at tage fat i blockchain, vil jeg gerne eksperimentere med nogle databaser som
+                    typisk bliver brugt til app udvikling. Så det første jeg har gjorde var at undersøge hvilket
+                    muligheder der var. <br> <br>
+                    Konklusion: der er utrolig mange og på de fleste forums skriver folk at valget af din database
+                    afhænger utrolig meget af opgaven/appen hvor den skal bruges. <br><br>
 
-                    Det giver naturligvis god mening. Så derfor ville jeg gerne finde en database som var alsidig ift. usecases den bruges i og så skulle den være veldokumenteret. <br>
-                     En som jeg havde hørt om før og som også blev nævnt flere gange i Flutter forums var <b>Google Firebase</b>. Den bliver beskrevet som en meget skalerbart løsning til både persistens, authentication og cloud messaging (alle sammen funktionaliteter som skal være i projekt-produktet). <br>
-                    Derudover ville det give god mening at der synergi mellem Firebase og Flutter, eftersom det er udviklet af den samme virksomhed. <br> <br>
+                    Det giver naturligvis god mening. Så derfor ville jeg gerne finde en database som var alsidig ift.
+                    usecases den bruges i og så skulle den være veldokumenteret. <br>
+                    En som jeg havde hørt om før og som også blev nævnt flere gange i Flutter forums var <b>Google
+                        Firebase</b>. Den bliver beskrevet som en meget skalerbart løsning til både persistens,
+                    authentication og cloud messaging (alle sammen funktionaliteter som skal være i projekt-produktet).
+                    <br>
+                    Derudover ville det give god mening at der synergi mellem Firebase og Flutter, eftersom det er
+                    udviklet af den samme virksomhed. <br> <br>
 
-                    Ved brug af Firebase er mit data lagret på Googles server - så jeg kunne også godt tænke mig at undersøge et alternativ til det. <br> Til det har jeg fundet en anden persitens løsning som hedder <b>Hive</b>. Den bliver beskrevet som en avanceret lokal NoSQL database som bliver implementeret direkte i frontenden og skulle have enorm hurtig eksekveringstid.
-                    
+                    Ved brug af Firebase er mit data lagret på Googles server - så jeg kunne også godt tænke mig at
+                    undersøge et alternativ til det. <br> Til det har jeg fundet en anden persitens løsning som hedder
+                    <b>Hive</b>. Den bliver beskrevet som en avanceret lokal NoSQL database som bliver implementeret
+                    direkte i frontenden og skulle have enorm hurtig eksekveringstid.
+
 
                 </p>
 
@@ -379,7 +403,8 @@
 
             <div style="width: 70%; text-align: center;">
 
-                <img src="images/Firebase_logotext.png" alt="" style="display: block; width: 500px; margin-bottom: 50px; margin-top: 100px;">
+                <img src="images/Firebase_logotext.png" alt=""
+                    style="display: block; width: 500px; margin-bottom: 50px; margin-top: 100px;">
                 <img src="images/hive_logotext.png" alt="" style="display: block; width: 400px;">
 
             </div>
@@ -400,7 +425,8 @@
         <h5 class="blogcontext">17-02-2022</h5>
         <p class="blogcontext"> De sidste to uger har jeg brugt på at blive bekendt med nogle af de fundamentale
             principper indenfor Flutter og Dart. <br> Jeg har startet med at læse de første to sektioner af <b>Flutter
-                Apprentice</b> , som er en bog jeg har fundet gennem anbefalinger på diverse forums. Indtil videre har jeg fundet
+                Apprentice</b> , som er en bog jeg har fundet gennem anbefalinger på diverse forums. Indtil videre har
+            jeg fundet
             den utrolig hjælpsom til setup i VS Code - samt lære grundkoncepterne til selv at lave en applikation med
             Flutter og Dart. <br><br>
 
@@ -506,36 +532,47 @@
         <p class="blogcontext">
 
         <ol class="blogcontext">
-            <li>Alle Flutter applikationer starter ligesom mange andre med en <b>main</b> metode, som kalder <b>runApp</b> metoden med
-                en widget som parameter. Den fortæller Flutter i dette tilfælde at <b>RecipeApp</b> er vores top-level app
+            <li>Alle Flutter applikationer starter ligesom mange andre med en <b>main</b> metode, som kalder
+                <b>runApp</b> metoden med
+                en widget som parameter. Den fortæller Flutter i dette tilfælde at <b>RecipeApp</b> er vores top-level
+                app
                 eller root widget. <br><br>
             </li>
             <li>RecipeApp er den widget jeg bruger som indgangsvinklen til resten af appens komponenter. Så her kan jeg
-                definere ting som appens titel og tema. (Denne widget er af type <b>Stateless</b>, som jeg vil redegøre for i
+                definere ting som appens titel og tema. (Denne widget er af type <b>Stateless</b>, som jeg vil redegøre
+                for i
                 et senere indlæg). <br> <br>
             </li>
-            <li> <b>MaterialApp</b> er en klasse som fortæller os at appen bruger <b>material design</b>, som er et design system
+            <li> <b>MaterialApp</b> er en klasse som fortæller os at appen bruger <b>material design</b>, som er et
+                design system
                 udviklet af Google. Det indebære nogle fælles principper, komponenter og styling, som er med til at
                 hjælpe os udviklere med at bygge ensartet bruger oplevelser på tværs af platforme. <br>
-                Med dens <b>home</b> property, der tager et widget som parameter, kan jeg sætte default routen når appen åbnes.
+                Med dens <b>home</b> property, der tager et widget som parameter, kan jeg sætte default routen når appen
+                åbnes.
                 <br> <br>
             </li>
-            <li> <b>Homepage</b> er det widget som skal håndtere alt hvad vi kommer til at se på "startsiden". Det vil være de
+            <li> <b>Homepage</b> er det widget som skal håndtere alt hvad vi kommer til at se på "startsiden". Det vil
+                være de
                 underliggende widget som definere udseendet, inde i <b>build</b> metoden.<br> <br>
             </li>
-            <li>Et af de mest anvendte widgets til at implementere et basic visuel layout er <b>Scaffold</b>. Kigger man på
+            <li>Et af de mest anvendte widgets til at implementere et basic visuel layout er <b>Scaffold</b>. Kigger man
+                på
                 dens properties vil man kunne genkende mange visuelle elementer som vi er en standard inden for apps.
                 Såsom AppBar, BottomAppBar, FloatingActionButton og Drawer<br> <br>
             </li>
-            <li><b>Padding</b> er et godt eksempel på at i Flutter er alt en widget. Så i kontrast til web development med HTML
+            <li><b>Padding</b> er et godt eksempel på at i Flutter er alt en widget. Så i kontrast til web development
+                med HTML
                 og CSS, hvor padding er en property du tildeler et UI element. Så er padding i Flutter sit eget widget,
                 som du <i>"wrapper"</i> uden om et eller flere widgets.<br> <br>
             </li>
-            <li>Et <b>Listview</b> widget kan ses lidt som et for loop, hvor vi specificere en længde og et "item" vi gerne vil
+            <li>Et <b>Listview</b> widget kan ses lidt som et for loop, hvor vi specificere en længde og et "item" vi
+                gerne vil
                 bygge.<br> <br>
             </li>
-            <li>Det item er et <b>recipeCard</b> widget som består af et <b>Image</b> og <b>Text</b> widget wrappet i en <b>Column</b> widget,
-                wrappet i et <b>Card</b> widget. recipeCard er wrappet i en <b>GestureDetector</b>  widget som vil navigere os ind på
+            <li>Det item er et <b>recipeCard</b> widget som består af et <b>Image</b> og <b>Text</b> widget wrappet i en
+                <b>Column</b> widget,
+                wrappet i et <b>Card</b> widget. recipeCard er wrappet i en <b>GestureDetector</b> widget som vil
+                navigere os ind på
                 en ny page - <b>RecipeDetail</b> .<br> <br>
             </li>
         </ol>
@@ -543,7 +580,8 @@
         </p>
 
         <p class="blogcontext">
-            Det sidste punkt er et godt eksempel på hvor indviklet det kan være at forklare Flutters widget struktur, også kaldt <b>widget tree</b>, når først man arbejder med mange elementer.
+            Det sidste punkt er et godt eksempel på hvor indviklet det kan være at forklare Flutters widget struktur,
+            også kaldt <b>widget tree</b>, når først man arbejder med mange elementer.
             Forneden har jeg to eksempler på hvordan den gennemgået kodes widget tree kan visualiseres.
 
         </p>
@@ -555,15 +593,15 @@
 
         <hr>
 
-            <h5 class="blogcontext">Kilder</h5>
-            
-                <ul class="blogcontext">
-                    <li>Flutter Apprentice - Sektion 1</li>
-                </ul>
+        <h5 class="blogcontext">Kilder</h5>
+
+        <ul class="blogcontext">
+            <li>Flutter Apprentice - Sektion 1</li>
+        </ul>
 
     </div>
 
-    <div  class="blogpost">
+    <div class="blogpost">
 
         <h2 class="blogcontext">1. Firebase projekt og tutorial review </h2>
         <div class="databaseLabel" style="margin-right: 5px;">
@@ -571,28 +609,48 @@
         </div>
 
         <h5 class="blogcontext">21-02-2022</h5>
-        <p class="blogcontext"> Efter at jeg er blevet mere komfortable med nogle af de fundamentale koncepter indenfor Flutter. Ville jeg gerne i gang med at prøver at implementere backend logik ved hjælp af Firebase. <br>
-            Mit mål var derfor i første omgang at kunne formidle til mit Database Guild,  nogle af de egenskaber Firebase kan tilbyde og samtidig demonstrere det i en live applikation. <br><br>
-            
-            På forhånd havde jeg set nogle videoer på Youtube omkring Firebases koncept, som omhandler meget mere en bare opbevaring af data. Hele platformen er bygget op omkring individuelle services som du kan tilkoble til din applikation efter behov. <br><br>
-            
-            Nedenstående billede viser hvilket services de tilbyder - og de markerede er dem jeg har tænkt mig at eksperimentere med.
+        <p class="blogcontext"> Efter at jeg er blevet mere komfortable med nogle af de fundamentale koncepter indenfor
+            Flutter. Ville jeg gerne i gang med at prøver at implementere backend logik ved hjælp af Firebase. <br>
+            Mit mål var derfor i første omgang at kunne formidle til mit Database Guild, nogle af de egenskaber Firebase
+            kan tilbyde og samtidig demonstrere det i en live applikation. <br><br>
+
+            På forhånd havde jeg set nogle videoer på Youtube omkring Firebases koncept, som omhandler meget mere en
+            bare opbevaring af data. Hele platformen er bygget op omkring individuelle services som du kan tilkoble til
+            din applikation efter behov. <br><br>
+
+            Nedenstående billede viser hvilket services de tilbyder - og de markerede er dem jeg har tænkt mig at
+            eksperimentere med.
         </p>
 
         <div style="text-align: center; width: 100%;">
             <img src="images/Firebase_services.png" alt="" style="height: 300px;">
         </div>
 
-        <p class="blogcontext"> For at få den bedste introduktion til Firebase og med Flutter, fandt jeg en separat sektion på deres hjemmeside, ved navn <b>FlutterFire</b> (opfindsomt), der lagde op til meget af det som jeg forventede at skulle bruge. <br><br> 
-            Jeg gik i gang med deres anbefalede introduktions-tutorial for nybegyndere <a href="https://firebase.google.com/codelabs/firebase-get-to-know-flutter#0">Codelab: Get to know Firebase for Flutter</a>, hvor jeg gerne skulle ende ud med en app, som brugte Authentication, Cloud Firestore og Cloud Messaging. <br><br>
-            
-            Man kan enten vælge at se en video som gennemgår stepsene eller kan man selv læse dem, jeg valgte en blanding. Første tre steps var ret lige til og gennemgik primært opsætningen af projekter i VS Code og Firebase - eftersom at jeg allerede havde prøvet det før lykkede denne del uden større problemer. <br><br>
-            Step fire, hvor man skal til at configurer sine VS Code projekt med sin Firebase projekt, går det op for mig at der ikke var en præcis sammenhæng mellem videoerne og teksten til stepsene.  Derudover blev der flere steder brugt forældet kode syntax, som resulterede i mange timer refaktorering og problemløsning på ting som ikke blev dækket i stepsene. <br><br>
-            
-            Tutorialen var en meget copy-paste gennemgang af nogle af Firebases features, forstået på den måde at ham som fortæller/koder løber til tider ret let over nogle komplicerede implementationer for at kunne nå det hele. Derfor ser jeg ikke denne tutorial som en "code along", men mere en "hold-på-hat-og-briller-gennemgang", for at demonstere hvor hurtigt man kan implementere Firebase i sit projeket. <br> <br>
+        <p class="blogcontext"> For at få den bedste introduktion til Firebase og med Flutter, fandt jeg en separat
+            sektion på deres hjemmeside, ved navn <b>FlutterFire</b> (opfindsomt), der lagde op til meget af det som jeg
+            forventede at skulle bruge. <br><br>
+            Jeg gik i gang med deres anbefalede introduktions-tutorial for nybegyndere <a
+                href="https://firebase.google.com/codelabs/firebase-get-to-know-flutter#0">Codelab: Get to know Firebase
+                for Flutter</a>, hvor jeg gerne skulle ende ud med en app, som brugte Authentication, Cloud Firestore og
+            Cloud Messaging. <br><br>
+
+            Man kan enten vælge at se en video som gennemgår stepsene eller kan man selv læse dem, jeg valgte en
+            blanding. Første tre steps var ret lige til og gennemgik primært opsætningen af projekter i VS Code og
+            Firebase - eftersom at jeg allerede havde prøvet det før lykkede denne del uden større problemer. <br><br>
+            Step fire, hvor man skal til at configurer sine VS Code projekt med sin Firebase projekt, går det op for mig
+            at der ikke var en præcis sammenhæng mellem videoerne og teksten til stepsene. Derudover blev der flere
+            steder brugt forældet kode syntax, som resulterede i mange timer refaktorering og problemløsning på ting som
+            ikke blev dækket i stepsene. <br><br>
+
+            Tutorialen var en meget copy-paste gennemgang af nogle af Firebases features, forstået på den måde at ham
+            som fortæller/koder løber til tider ret let over nogle komplicerede implementationer for at kunne nå det
+            hele. Derfor ser jeg ikke denne tutorial som en "code along", men mere en
+            "hold-på-hat-og-briller-gennemgang", for at demonstere hvor hurtigt man kan implementere Firebase i sit
+            projeket. <br> <br>
             De har nogle mere dybdegående tutorials for de enkelte services, som vil være det næste jeg skal se på. <br>
-            
-            Til gengæld er det altid forløsning at få udviklet noget som virker - og jeg fik, på trods af mange udfordringer, lavet en applikation som kommunikere med mit Firebase Projekt.
+
+            Til gengæld er det altid forløsning at få udviklet noget som virker - og jeg fik, på trods af mange
+            udfordringer, lavet en applikation som kommunikere med mit Firebase Projekt.
 
         </p>
 
@@ -601,7 +659,9 @@
         </div>
 
         <p class="blogcontext">
-            Det er en ret simple applikation som fremviser et event, der til at starte med kun har nogle informationer om eventet. Men brugerne af appen skal også kunne interagere med eventet, så det første jeg gjorde var at tilføje en Email/Password sign-in provider i mit Firebase panel.
+            Det er en ret simple applikation som fremviser et event, der til at starte med kun har nogle informationer
+            om eventet. Men brugerne af appen skal også kunne interagere med eventet, så det første jeg gjorde var at
+            tilføje en Email/Password sign-in provider i mit Firebase panel.
 
         </p>
 
@@ -610,8 +670,10 @@
         </div>
 
         <p class="blogcontext">
-            Jeg vil i appen kunne administrere baseret på brugeren input om den indtastede mail tilhøre en eksisterende bruger og opdatere UI'et der til.
-            Når brugeren så har oprettet sig og/eller logget ind, vil der blive fremvist to andre features. En tilmelding og en chat.
+            Jeg vil i appen kunne administrere baseret på brugeren input om den indtastede mail tilhøre en eksisterende
+            bruger og opdatere UI'et der til.
+            Når brugeren så har oprettet sig og/eller logget ind, vil der blive fremvist to andre features. En
+            tilmelding og en chat.
 
         </p>
 
@@ -621,7 +683,10 @@
         </div>
 
         <p class="blogcontext">
-            Begge dele har jeg forbundet til en Firestore Database. Den består af to separeret collections, som er en samling af "dokumenter". Så hver gang en bruger interagere med tilmeldingen eller chatten, vil der enten blive tilføjet nye dokumenter til kollektionerne eller ændret på dokumenter i kollektionerne. Alt dette sker live når appen køres. 
+            Begge dele har jeg forbundet til en Firestore Database. Den består af to separeret collections, som er en
+            samling af "dokumenter". Så hver gang en bruger interagere med tilmeldingen eller chatten, vil der enten
+            blive tilføjet nye dokumenter til kollektionerne eller ændret på dokumenter i kollektionerne. Alt dette sker
+            live når appen køres.
         </p>
 
         <div style="text-align: center; width: 100%;">
@@ -629,8 +694,12 @@
         </div>
 
         <p class="blogcontext">
-            Når man starter en ny Firestore collection, vil der ikke være nogle begrænsninger for hvem der kan læse og skrive til databasen gennem appen - jeg forstiller mig at det er for testmæssige årsager. Det vil naturligvis være muligt at begrænse adgangen til din databasen gennem UI'et, så lidt ligesom jeg gemt noget fra personer som ikke er logget ind.
-Men for være helt sikker på at uautoriseret bruger ikke benytter databasen kan man opstille "rules" for sine kollektioner.
+            Når man starter en ny Firestore collection, vil der ikke være nogle begrænsninger for hvem der kan læse og
+            skrive til databasen gennem appen - jeg forstiller mig at det er for testmæssige årsager. Det vil
+            naturligvis være muligt at begrænse adgangen til din databasen gennem UI'et, så lidt ligesom jeg gemt noget
+            fra personer som ikke er logget ind.
+            Men for være helt sikker på at uautoriseret bruger ikke benytter databasen kan man opstille "rules" for sine
+            kollektioner.
 
         </p>
 
@@ -638,22 +707,34 @@ Men for være helt sikker på at uautoriseret bruger ikke benytter databasen kan
             <img src="images/Firebase_firestore_rules.png" alt="" style="height: 250px;">
         </div>
 
-        <p class="blogcontext">På billedet ovenfor kan man se hvilket rules jeg har opstillet for guestbook (linje 4) og attendess (linje 12). <br> På linje 5 tillader jeg adgang til at læse fra databasen, hvis den modtaget read anmodning ikke er lige med null. Dette er måske ikke den bedste løsning, fordi jeg sikre mig egentligt ikke imod at anmodningen kommer fra en oprettet bruger i projektet. Så hvis man kunne komme udenom login/opret formularen, og på en måde få sendt hvilket som helst id med i anmodningen, ville fremvisningen af, i dette tilfælde chatten, kunne lade sig gøre. <br><br>
+        <p class="blogcontext">På billedet ovenfor kan man se hvilket rules jeg har opstillet for guestbook (linje 4) og
+            attendess (linje 12). <br> På linje 5 tillader jeg adgang til at læse fra databasen, hvis den modtaget read
+            anmodning ikke er lige med null. Dette er måske ikke den bedste løsning, fordi jeg sikre mig egentligt ikke
+            imod at anmodningen kommer fra en oprettet bruger i projektet. Så hvis man kunne komme udenom login/opret
+            formularen, og på en måde få sendt hvilket som helst id med i anmodningen, ville fremvisningen af, i dette
+            tilfælde chatten, kunne lade sig gøre. <br><br>
 
-Det gør jeg til gengæld fra linje 6 til 10, hvor jeg opstiller reglerne for anmodninger som skriver til databasen. Her sikre jeg at det brugerId som kommer med fra anmodning stemmer overens med en autoriseret bruger i projektet. <br><br>
+            Det gør jeg til gengæld fra linje 6 til 10, hvor jeg opstiller reglerne for anmodninger som skriver til
+            databasen. Her sikre jeg at det brugerId som kommer med fra anmodning stemmer overens med en autoriseret
+            bruger i projektet. <br><br>
 
-Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Firestore collection, kan ses på linje 13. Dette vil typisk være defaulten for en collection og gør det muligt for alle i appen at få fremvist, i dette tilfælde, hvor mange som deltager til eventet. <br><br>
+            Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Firestore collection, kan ses på
+            linje 13. Dette vil typisk være defaulten for en collection og gør det muligt for alle i appen at få
+            fremvist, i dette tilfælde, hvor mange som deltager til eventet. <br><br>
 
         </p>
 
         <hr>
 
-            <h5 class="blogcontext">Kilder</h5>
-            
-                <ul class="blogcontext">
-                    <li><a href="https://firebase.flutter.dev/docs/overview/ ">https://firebase.flutter.dev/docs/overview/ </a></li>
-                    <li><a href="https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase">https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase</a></li>
-                </ul>
+        <h5 class="blogcontext">Kilder</h5>
+
+        <ul class="blogcontext">
+            <li><a href="https://firebase.flutter.dev/docs/overview/ ">https://firebase.flutter.dev/docs/overview/ </a>
+            </li>
+            <li><a
+                    href="https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase">https://www.youtube.com/watch?v=wUSkeTaBonA&t=15s&ab_channel=Firebase</a>
+            </li>
+        </ul>
 
 
 
@@ -667,16 +748,33 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
 
         <h5 class="blogcontext">24-02-2022</h5>
         <p class="blogcontext">
-            I Flutter eksistere der to former for widgets, stateful widgets og stateless widgets. <b>State</b> er et term som jeg ofte støder på når jeg har læst om app udvikling og især <b>state-management</b> anses som en absolut must hvis du skal være en app udvikler. <br> Men hvad er state? <br><br>
+            I Flutter eksistere der to former for widgets, stateful widgets og stateless widgets. <b>State</b> er et
+            term som jeg ofte støder på når jeg har læst om app udvikling og især <b>state-management</b> anses som en
+            absolut must hvis du skal være en app udvikler. <br> Men hvad er state? <br><br>
 
-            En apps state kan defineres som hvad end der eksistere i appens hukommelse, mens den køre. Dette kan være alt fra konfigurerings filer, datamodels, app assests og naturligvis alle widgets som udgør brugergrænsefladen. Nogle gange vil vi gerne kunne ændre staten af vores app i form af fremvisning af specifikke UI elementer eller ændring af et widgets variabler i run time - og andre gange er det vigtigt at de ikke kan ændre sig og forholder sig statiske under run time. <br><br>
+            En apps state kan defineres som hvad end der eksistere i appens hukommelse, mens den køre. Dette kan være
+            alt fra konfigurerings filer, datamodels, app assests og naturligvis alle widgets som udgør
+            brugergrænsefladen. Nogle gange vil vi gerne kunne ændre staten af vores app i form af fremvisning af
+            specifikke UI elementer eller ændring af et widgets variabler i run time - og andre gange er det vigtigt at
+            de ikke kan ændre sig og forholder sig statiske under run time. <br><br>
 
-            En <b>Stateless widget</b> gør præcis det sidst nævnte. Når denne form for widget bliver bygget, vil den, samt dens indhold, være uforanderlig og kan ikke ændre på appens state. De bruges typisk til at fremvise elementer og information - så nogle eksempler på hyppigt brugte stateless widgets vil være Text, Icon, Dialog, Card, SnackBar. De er nyttige til når brugergrænsefladen som du beskriver ikke er afhængige af andre parametre end dem du giver til at starte med og ikke skal ændre på appens state. <br><br>
+            En <b>Stateless widget</b> gør præcis det sidst nævnte. Når denne form for widget bliver bygget, vil den,
+            samt dens indhold, være uforanderlig og kan ikke ændre på appens state. De bruges typisk til at fremvise
+            elementer og information - så nogle eksempler på hyppigt brugte stateless widgets vil være Text, Icon,
+            Dialog, Card, SnackBar. De er nyttige til når brugergrænsefladen som du beskriver ikke er afhængige af andre
+            parametre end dem du giver til at starte med og ikke skal ændre på appens state. <br><br>
 
-            Hvis vi derimod skal kunne interagere med appens state under run time, skal man bruge <b>Statefull widget</b>. Denne form for widget er dynamisk og kan ændre sit udseende som et respons til udløst event af brugeren eller modtagelse af data. Textfield, Checkbox, RadioButton og Sliders er gode eksempler på statefull widgets, fordi de kan konstant ændre under et widgets livscyklus. <br>
-            Et widgets state er opbevaret i et <b>state objekt</b>, som separere widgetens state fra dens udseende. For at kunne aktivere ændringen af et widgets state og derved opdatere dens udseende, kalder man på et state objektets <b>setState()</b> funktion. Den fortæller frameworket at "gentegne" widget'et fra ny og derved præsentere brugen for dens nye state og de tilsvarende ændringer. <br><br>
+            Hvis vi derimod skal kunne interagere med appens state under run time, skal man bruge <b>Statefull
+                widget</b>. Denne form for widget er dynamisk og kan ændre sit udseende som et respons til udløst event
+            af brugeren eller modtagelse af data. Textfield, Checkbox, RadioButton og Sliders er gode eksempler på
+            statefull widgets, fordi de kan konstant ændre under et widgets livscyklus. <br>
+            Et widgets state er opbevaret i et <b>state objekt</b>, som separere widgetens state fra dens udseende. For
+            at kunne aktivere ændringen af et widgets state og derved opdatere dens udseende, kalder man på et state
+            objektets <b>setState()</b> funktion. Den fortæller frameworket at "gentegne" widget'et fra ny og derved
+            præsentere brugen for dens nye state og de tilsvarende ændringer. <br><br>
 
-            For at demonstere hvordan disse to former for widgets fungere har jeg lavet en simple applikation som består af noget tekst, som er vores stateless widget og en checkbox som vores statefull widget.  
+            For at demonstere hvordan disse to former for widgets fungere har jeg lavet en simple applikation som består
+            af noget tekst, som er vores stateless widget og en checkbox som vores statefull widget.
 
         </p>
 
@@ -738,33 +836,54 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
 
         <p class="blogcontext">
 
-            <ol class="blogcontext">
-                <li>Jeg har startet med at lave et widget <b>ColorContainer</b> som nedarver fra StatefulWidget klasse. På denne måde tilkendegiver jeg at i dette widget vil jeg kalde setState funktionen på et af mine widgets<br><br>
-                </li>
-                <li>Lidt ligesom en klasse i andre objekt orienteret sprog kan man definere variabler inde i sine klasser/widgets - dettet gør man oftes inden <b>build</b> metoden. I dette eksempel instantiere jeg min variable <b>redColor</b> med det samme. Men i nogle tilfælde vil man først have behov for at instantier dem senere. Her vil man bruge <b>late</b> keywordet og en <b>initState</b> metode. Begge vil blive dækket i et senere oplæg.<br><br>
-                </li>
-                <li>Som det næste angiver jeg farven som min Container skal have. Her bruger jeg variablen redColor i en <b>Ternary Conditional Operator</b>, som er en forsimplet måde at lave en en if else statement. Hvis redColor er true sættets containers color til rød, hvis false, grøn.<br><br>
-                </li>
-                <li>Text er som tidligere nævnt en stateless widget. Her har jeg angivet nogle specifikke værdier for widgetens variabler text, fontSize og fontWeight. Efter ColorContainer er bygget, vil disse variabler være uforanderlige.<br><br>
-                </li>
-                <li>Checkbox er en statefull widget og kræver at man angiver to variabler: value og onChanged.Inputtet for value skal være en bool datatype og vil typisk hedde isChecked, eftersom det er det vi man normalt vil registerer med en checkbox. onChanged tager imod en void funktion med en bool som parameter <b>(newValue)</b> og lytter på hvis den ændre sig<br><br>
-                </li>
-                <li>Når den så ændre sig (ved check eller uncheck) kalder jeg setState funktionen som sætter redColor til at være lige med newValue. Efter setState er blevet kaldt vil hele ColorContainer blive gentegnet - og hvor i step 3 redColor var false, vil den nu være true<br><br>
-                </li>
-                
-            </ol>
-    
-            </p>
+        <ol class="blogcontext">
+            <li>Jeg har startet med at lave et widget <b>ColorContainer</b> som nedarver fra StatefulWidget klasse. På
+                denne måde tilkendegiver jeg at i dette widget vil jeg kalde setState funktionen på et af mine
+                widgets<br><br>
+            </li>
+            <li>Lidt ligesom en klasse i andre objekt orienteret sprog kan man definere variabler inde i sine
+                klasser/widgets - dettet gør man oftes inden <b>build</b> metoden. I dette eksempel instantiere jeg min
+                variable <b>redColor</b> med det samme. Men i nogle tilfælde vil man først have behov for at instantier
+                dem senere. Her vil man bruge <b>late</b> keywordet og en <b>initState</b> metode. Begge vil blive
+                dækket i et senere oplæg.<br><br>
+            </li>
+            <li>Som det næste angiver jeg farven som min Container skal have. Her bruger jeg variablen redColor i en
+                <b>Ternary Conditional Operator</b>, som er en forsimplet måde at lave en en if else statement. Hvis
+                redColor er true sættets containers color til rød, hvis false, grøn.<br><br>
+            </li>
+            <li>Text er som tidligere nævnt en stateless widget. Her har jeg angivet nogle specifikke værdier for
+                widgetens variabler text, fontSize og fontWeight. Efter ColorContainer er bygget, vil disse variabler
+                være uforanderlige.<br><br>
+            </li>
+            <li>Checkbox er en statefull widget og kræver at man angiver to variabler: value og onChanged.Inputtet for
+                value skal være en bool datatype og vil typisk hedde isChecked, eftersom det er det vi man normalt vil
+                registerer med en checkbox. onChanged tager imod en void funktion med en bool som parameter
+                <b>(newValue)</b> og lytter på hvis den ændre sig<br><br>
+            </li>
+            <li>Når den så ændre sig (ved check eller uncheck) kalder jeg setState funktionen som sætter redColor til at
+                være lige med newValue. Efter setState er blevet kaldt vil hele ColorContainer blive gentegnet - og hvor
+                i step 3 redColor var false, vil den nu være true<br><br>
+            </li>
 
-            <hr>
+        </ol>
 
-            <h5 class="blogcontext">Kilder</h5>
-            
-                <ul class="blogcontext">
-                    <li><a href="https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app">https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp">https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp</a></li>
-                    <li><a href="https://docs.flutter.dev/development/ui/interactive">https://docs.flutter.dev/development/ui/interactive</a></li>
-                </ul>
+        </p>
+
+        <hr>
+
+        <h5 class="blogcontext">Kilder</h5>
+
+        <ul class="blogcontext">
+            <li><a
+                    href="https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app">https://docs.flutter.dev/development/data-and-backend/state-mgmt/ephemeral-vs-app</a>
+            </li>
+            <li><a
+                    href="https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp">https://www.geeksforgeeks.org/flutter-stateful-vs-stateless-widgets/?ref=lbp</a>
+            </li>
+            <li><a
+                    href="https://docs.flutter.dev/development/ui/interactive">https://docs.flutter.dev/development/ui/interactive</a>
+            </li>
+        </ul>
 
 
     </div>
@@ -778,32 +897,43 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
 
         <h5 class="blogcontext">01-03-2022</h5>
         <p class="blogcontext">
-            Jeg har nu været i gang med dette semester i lige knap en måned - og vi har netop haft det første med møde med vores product owner omkring status på Rento projektet.
-            Under dette møde gennemgik vi til at starte med hvilket issues som der var færdiggjorte og hvilket som stadig var igangværende. 
+            Jeg har nu været i gang med dette semester i lige knap en måned - og vi har netop haft det første med møde
+            med vores product owner omkring status på Rento projektet.
+            Under dette møde gennemgik vi til at starte med hvilket issues som der var færdiggjorte og hvilket som
+            stadig var igangværende.
             Siden vi startede er følgende user stories færdigudviklet: <br>
 
-<ul>
-    <li>Som en Udlejer (Renter) vil jeg kunne oprette et nyt produkt</li>
-    <li>Som Udlejer vil jeg kunne styre kalenderen for et produkt jeg har til udleje</li>
-    <li>Som Udlejer vil jeg kunne ændrer i et produkt jeg har til udleje</li>
-    <li>Som Admin vil jeg håndtere kategorier</li>
-</ul>
-	
-</p >
+        <ul>
+            <li>Som en Udlejer (Renter) vil jeg kunne oprette et nyt produkt</li>
+            <li>Som Udlejer vil jeg kunne styre kalenderen for et produkt jeg har til udleje</li>
+            <li>Som Udlejer vil jeg kunne ændrer i et produkt jeg har til udleje</li>
+            <li>Som Admin vil jeg håndtere kategorier</li>
+        </ul>
 
-<p class="blogcontext">
+        </p>
 
-    De indebære naturligvis nogle underlæggende issues til både backend og frontend delen. Vi har måtte konkludere at frontend tager længere tid end forventet og overskrider mange af de tidsestimeringer som vi satte i starten af projektet. Dette betyder så også at mange af backend implementationer for andre issues er klaret og venter bare på frontend delen bliver lavet. <br><br>
-    
-    Med en klar opdeling af issues kunne vi også gøre vores PO opmærksom på at vi har nået at udvikle 32% af de samlede system. Ift. den estimerede tid på de issues vi har gennemført ligger den på 159 timer og den registrerede tid er 215 timer. Dette er selvfølgelig et stor forskel, men var dog forventet da vi har brugt meget tid på at lærer de nye teknologier og sprog. <br><br>
-    
-    Efterfølgende demonstrerede de dele af appen som var blevet færdigudviklet: Login/registerings flow, opret produkt flow og den administrative del. PO udtrykte stor tilfredshed med resultatet og havde ikke nogle indvendinger på det endelige design. Dette skyldes blandt andet også Little Giants konstante kommunikation med PO gennem Figma, hvor de har mulig for at komme med feedback på designet mens det laves.
-</p>
+        <p class="blogcontext">
+
+            De indebære naturligvis nogle underlæggende issues til både backend og frontend delen. Vi har måtte
+            konkludere at frontend tager længere tid end forventet og overskrider mange af de tidsestimeringer som vi
+            satte i starten af projektet. Dette betyder så også at mange af backend implementationer for andre issues er
+            klaret og venter bare på frontend delen bliver lavet. <br><br>
+
+            Med en klar opdeling af issues kunne vi også gøre vores PO opmærksom på at vi har nået at udvikle 32% af de
+            samlede system. Ift. den estimerede tid på de issues vi har gennemført ligger den på 159 timer og den
+            registrerede tid er 215 timer. Dette er selvfølgelig et stor forskel, men var dog forventet da vi har brugt
+            meget tid på at lærer de nye teknologier og sprog. <br><br>
+
+            Efterfølgende demonstrerede de dele af appen som var blevet færdigudviklet: Login/registerings flow, opret
+            produkt flow og den administrative del. PO udtrykte stor tilfredshed med resultatet og havde ikke nogle
+            indvendinger på det endelige design. Dette skyldes blandt andet også Little Giants konstante kommunikation
+            med PO gennem Figma, hvor de har mulig for at komme med feedback på designet mens det laves.
+        </p>
 
 
     </div>
 
-    <div id="new" class="blogpost">
+    <div class="blogpost">
 
         <h2 class="blogcontext">Hvad er en NoSQL database?</h2>
         <div class="databaseLabel" style="margin-right: 5px;">
@@ -811,14 +941,22 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
         </div>
 
         <h5 class="blogcontext">04-03-2022</h5>
-        <p class="blogcontext"> 
-            Jeg har tidligere under mit uddannelsesforløb stiftet kendskab med MSSMS som er Micosofts Relationelle database. Her arbejdede jeg med data som havde relationer til hinanden og hvor jeg på tværs af tabels kunne fremvise informationer defineret af queries.
-            Det er i høj grad en struktureret måde at arbejde med data på og jeg var derfor også en anelse skeptisk da jeg hørte omkring NoSQL databaser. <br><br>
+        <p class="blogcontext">
+            Jeg har tidligere under mit uddannelsesforløb stiftet kendskab med MSSMS som er Micosofts Relationelle
+            database. Her arbejdede jeg med data som havde relationer til hinanden og hvor jeg på tværs af tabels kunne
+            fremvise informationer defineret af queries.
+            Det er i høj grad en struktureret måde at arbejde med data på og jeg var derfor også en anelse skeptisk da
+            jeg hørte omkring NoSQL databaser. <br><br>
 
-            Fordi NoSQL er det som betegnes som shema-less. Det vil sige at hvor med en SQL database som inddeler sin data i tabels og de tabels kan forbindes ved hjælp af foreign keys - der opbevare en NoSQL databaser alt data samlet et sted. Der er ikke nogle restriktioner på database-niveauet hvorvidt den modtaget datatype er korrekt og hvornår den bliver indsat i database. Du behøves ikke engang at udfylde de samme felter som dine andre objekter i databasen, faktisk behøves det ikke engang at være det samme objekt. <br>
+            Fordi NoSQL er det som betegnes som shema-less. Det vil sige at hvor med en SQL database som inddeler sin
+            data i tabels og de tabels kan forbindes ved hjælp af foreign keys - der opbevare en NoSQL databaser alt
+            data samlet et sted. Der er ikke nogle restriktioner på database-niveauet hvorvidt den modtaget datatype er
+            korrekt og hvornår den bliver indsat i database. Du behøves ikke engang at udfylde de samme felter som dine
+            andre objekter i databasen, faktisk behøves det ikke engang at være det samme objekt. <br>
             Så hvorfor vil man bruge noget så ustruktureret? <br><br>
 
-            NoSQL oprindelse går tilbage til 60'erne, men det var i de sene 2000 da omkostningerne for data opbevaring begyndte at falde dramatisk.
+            NoSQL oprindelse går tilbage til 60'erne, men det var i de sene 2000 da omkostningerne for data opbevaring
+            begyndte at falde dramatisk.
 
 
         </p>
@@ -828,60 +966,345 @@ Et eksempel på hvis vi ikke var interesseret i at skjule indholdet fra en Fires
         </div>
 
         <p class="blogcontext">
-            Billedet ovenfor illustrere prisforløbet på opbevaring af data per megabit de sidste 60 år. Med denne markante ændring af pris havde udviklere ikke længere behov for at lave komplekse og svære-at-vedligeholde data modeller for at undgå duplikering af data. <br><br>
+            Billedet ovenfor illustrere prisforløbet på opbevaring af data per megabit de sidste 60 år. Med denne
+            markante ændring af pris havde udviklere ikke længere behov for at lave komplekse og svære-at-vedligeholde
+            data modeller for at undgå duplikering af data. <br><br>
 
-            Fordi med en NoSQL vil man havde svært ved at undgå duplikering på grund af de manglende tabel relationer. Dette betød dog, ifølge MongoDB, at udviklerne kunne arbejde langt mere effektivt og fleksibelt fordi der ikke længere var en struktur som de skulle overholde, samtidig skulle de ikke længere være bekymret for ændringer af objekter og systemkrav. <br><br>
+            Fordi med en NoSQL vil man havde svært ved at undgå duplikering på grund af de manglende tabel relationer.
+            Dette betød dog, ifølge MongoDB, at udviklerne kunne arbejde langt mere effektivt og fleksibelt fordi der
+            ikke længere var en struktur som de skulle overholde, samtidig skulle de ikke længere være bekymret for
+            ændringer af objekter og systemkrav. <br><br>
 
             De fire mest almindelig NoSQL databaser er:
 
-            <ul>
-                <li><b>Key-value</b> database er en af de mere simple typer. Her parres nøgler og værdier ved hjælp af et hashtable, på den måde kan man identificere en nøgles ukendte værdi.
-                </li>
-                <li><b>Document</b> database som opbevare data i samlinger som består af dokumenter lignede JSON objekter. Her består hvert dokument af fields og values, som beskriver en variable og dens datatype. (Cloud Firestore)
+        <ul>
+            <li><b>Key-value</b> database er en af de mere simple typer. Her parres nøgler og værdier ved hjælp af et
+                hashtable, på den måde kan man identificere en nøgles ukendte værdi.
+            </li>
+            <li><b>Document</b> database som opbevare data i samlinger som består af dokumenter lignede JSON objekter.
+                Her består hvert dokument af fields og values, som beskriver en variable og dens datatype. (Cloud
+                Firestore)
 
-                </li>
-                <li><b>Wide-column</b> database opbevare data i kolonner, brede kolonner og kolonnefamilier. Dette anses som en effektiv måde at lave forespørgsler på data på tværs af rækker i bestemte kolonner.
+            </li>
+            <li><b>Wide-column</b> database opbevare data i kolonner, brede kolonner og kolonnefamilier. Dette anses som
+                en effektiv måde at lave forespørgsler på data på tværs af rækker i bestemte kolonner.
 
-                </li>
-                <li><b>Graph</b> database opbevare data i nodes og edges. Nodes indeholder typisk information omkring mennesker, steder og ting, mens edges indeholder information omkring relationerne mellem nodes
-                </li>
-            </ul>
+            </li>
+            <li><b>Graph</b> database opbevare data i nodes og edges. Nodes indeholder typisk information omkring
+                mennesker, steder og ting, mens edges indeholder information omkring relationerne mellem nodes
+            </li>
+        </ul>
         </p>
 
         <p class="blogcontext">
-            I følge <a href="https://www.youtube.com/watch?v=v_hR4K4auoQ&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=1&ab_channel=Firebase">Get to know Cloud Firestore part 1</a>, kommer NoSQL til at harmonere godt med mit andet emne frontend programmering, hvor jeg begyndt at arbejde mere med validering af bruger input. <br> De fortæller at når man bruger NoSQL vil man skulle "kode defensivt" på client side. Fordi selvom du kan opstille security rules for hvilken data du indsætter hvor, så er der i virkeligheden ikke nogen garanti for på database niveauet hvilken data du modtager.
+            I følge <a
+                href="https://www.youtube.com/watch?v=v_hR4K4auoQ&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=1&ab_channel=Firebase">Get
+                to know Cloud Firestore part 1</a>, kommer NoSQL til at harmonere godt med mit andet emne frontend
+            programmering, hvor jeg begyndt at arbejde mere med validering af bruger input. <br> De fortæller at når man
+            bruger NoSQL vil man skulle "kode defensivt" på client side. Fordi selvom du kan opstille security rules for
+            hvilken data du indsætter hvor, så er der i virkeligheden ikke nogen garanti for på database niveauet
+            hvilken data du modtager.
             Derfor er det op til brugergrænsefladen at navigere brugerens input over imod det ønskede resultat. <br><br>
 
-            Noget som også adskiller NoSQL fra en almindelig SQL database er dens egenskab til nemt at distribuere sin data over flere maskiner.
+            Noget som også adskiller NoSQL fra en almindelig SQL database er dens egenskab til nemt at distribuere sin
+            data over flere maskiner.
 
 
         </p>
-        
+
         <div style="text-align: center; width: 100%;">
             <img src="images/database_scaling.png" alt="" style="height: 350px;">
         </div>
-        
+
         <p class="blogcontext">
-            Lad os sige vi har en SQL database som opbevare noget data for vores Rento projekt - det kunne være brugere, produkter, beskeder osv. Forhåbentligt vil der komme et større antal af brugere eller produkter jo længere tid appen er live, og på et eller andet tidspunkt vil det være nødvendigt at skalere vores database for at få mere plads. <br> <br>
-            Med en almindelig SQL database ville det typisk være nødvendigt at anskaffe en større og kraftigere maskine for at have sin database kørende - dette kaldes for <b>vertikal skalering</b>. <br>
-            Derimod med en NoSQL database, som Fireastore, der skalere den <b>horisontalt</b>, forstået på den måde at når databasen har brug for mere plads vil den kunne distribuere sit data over flere servere. <br><br>
+            Lad os sige vi har en SQL database som opbevare noget data for vores Rento projekt - det kunne være brugere,
+            produkter, beskeder osv. Forhåbentligt vil der komme et større antal af brugere eller produkter jo længere
+            tid appen er live, og på et eller andet tidspunkt vil det være nødvendigt at skalere vores database for at
+            få mere plads. <br> <br>
+            Med en almindelig SQL database ville det typisk være nødvendigt at anskaffe en større og kraftigere maskine
+            for at have sin database kørende - dette kaldes for <b>vertikal skalering</b>. <br>
+            Derimod med en NoSQL database, som Fireastore, der skalere den <b>horisontalt</b>, forstået på den måde at
+            når databasen har brug for mere plads vil den kunne distribuere sit data over flere servere. <br><br>
 
 
-            Der findes naturligvis fordele og ulemper ved begge former for databaser - og specifikke scenarier hvor den ene egner sig bedre end den anden. Men inden for mobil applikation udvikle, hvor reads fra databasen typisk prioriteres højere end writes, vil det åbenlyse valg være en NoSQL database. 
+            Der findes naturligvis fordele og ulemper ved begge former for databaser - og specifikke scenarier hvor den
+            ene egner sig bedre end den anden. Men inden for mobil applikation udvikle, hvor reads fra databasen typisk
+            prioriteres højere end writes, vil det åbenlyse valg være en NoSQL database.
 
         </p>
 
         <hr>
 
         <h5 class="blogcontext">Kilder</h5>
-            
-                <ul class="blogcontext">
-                    <li><a href="https://www.mongodb.com/nosql-explained">https://www.mongodb.com/nosql-explained</a></li>
-                    <li><a href="https://azure.microsoft.com/da-dk/overview/nosql-database/
+
+        <ul class="blogcontext">
+            <li><a href="https://www.mongodb.com/nosql-explained">https://www.mongodb.com/nosql-explained</a></li>
+            <li><a href="https://azure.microsoft.com/da-dk/overview/nosql-database/
                         ">https://azure.microsoft.com/da-dk/overview/nosql-database/
-                    </a></li>
-                    <li><a href="https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data">https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data</a></li>
-                </ul>
+                </a></li>
+            <li><a
+                    href="https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data">https://docs.microsoft.com/da-dk/azure/architecture/data-guide/big-data/non-relational-data</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">Opret Produkt Flow - part 1</h2>
+        <div style="display: flex;">
+            <div class="frontendLabel" style="margin-right: 5px;">
+                <b>Frontend</b>
+            </div>
+            <div class="productLabel">
+                <b>Produkt</b>
+            </div>
+        </div>
+
+        <h5 class="blogcontext">09-03-2022</h5>
+        <p class="blogcontext"> <b><i>Som en Udlejer (Renter) vil jeg kunne oprette et nyt produkt</i></b>  - er blandt de vigtigste userstories som findes i systemet og det er derfor også vigtigt at oprettelses flowet føles intuitiv og brugervenligt. Det kan blandt andet gøres ved at genbruge elementer og principper som vi, som brugere, er blevet vante til i forskellige oprettelse-scenarier. <br><br>
+
+            For Rentos oprettelse af produkt var der nogle klare linjer imellem hvert element som skulle udgøre et produkt - og eftersom at det er en mobil applikation vi udvikler, vil der være en begrænset mængde plads på skærmen, som helst skal udnyttes bedst muligt. Dette kaldes også for <b>screen real estate</b>. <br><br>
+            
+            Heldigt for os er der ansat en dygtig UX (User Experience) designer hos Little Giants, som på forhånd har designet hvordan oprettelses flowet skulle foregå. Dette har været en fast del af processen når jeg har skulle implementere noget nyt frontend. <br><br>
+            </p>
+
+            <div style="text-align: center; width: 100%;">
+                <img src="images/add_product_figma.png" alt="" style="height: 250px;">
+            </div>
+
+            <p class="blogcontext">
+                Billedet foroven er taget indefra Figma som er det design værktøj som Little Giants designer sit UI i. Her er det lidt nemmere at se de elementer jeg nævnte tidligere som udgør et produkt.
+                Det er: billeder, produktbeskrivelse, kategorier, afhentningssted og pris. <br><br> 
+                
+                Det som jeg skal være opmærksom på når jeg implementere et så omfattende issue bestående af flere dele, er blandt andet hvilket elementer eller i det her tilfælde widgets som der går igen. På den måde kan jeg sikre mig fra start at udvikle widgetet som kan genbruges. <br>
+                Et godt eksempel på dette, ud fra designet, ville være header'en, altså den øverste del af af sidenerne og navigations baren i bunden. De er stort set ens på alle steps og giver derfor mening at lave et fælles widget for dette. <br> <br>
+                I koden forneden kan man se hvordan jeg har lavet headeren - <b>CreateProductHeader</b>. 
+                
+
+            </p>
+
+            <div style="width: 100%; display: flex;">
+
+                
+    
+                <div class="codeContainer">
+                    <pre>
+                        <code>
+                            <p style="color: #ece4dc;">
+        <span style="color: #FF6C8A;">//1</span>
+        class CreateProductHeader extends StatelessWidget {
+            final String stepTitel;
+            final Function? onTap;
+            const CreateProductHeader({
+            Key? key,
+            required this.stepTitel,
+            this.onTap,
+            }) : super(key: key);
+        
+            @override
+            Widget build(BuildContext context) {
+            return Container(
+                width: double.infinity,
+                height: 140,
+                child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    <span style="color: #FF6C8A;">//2</span>
+                    GestureDetector(
+                        child: Icon(
+                            Icons.arrow_back_ios,
+                            size: 30,
+                        ),
+                        onTap: () {
+                            if (onTap != null) {
+                            onTap!();
+                            }
+                        }),
+                    SizedBox(
+                        height: 20,
+                    ),
+                    <span style="color: #FF6C8A;">//3</span>
+                    Headline5(
+                        translate(stepTitel),
+                    ),
+                    ],
+                ),
+                ),
+            );
+            }
+        }
+                                                            </p>
+                                                        </code>
+                                                    </pre>
+                </div>
+
+                    <ol class="blogcontext">
+                        <li>Til at starte med definere jeg nogle parametre som CreateProductHeader skal have, når den bliver brugt. <br><b>stepTitel</b> er noget simpel tekst og <b>onTap</b> kan være hvilket som helst funktion vi parser med dete widget (Men navnet siger lidt hvad den skal bruges til). <br> Spørgsmålstegnet efter Function betyder at denne parameter er valgfri. <br><br></li>
+                        <li>Selve opsætningen af headeren er ret simpel. Tilbageikonet bruger jeg et ikon fra Icons klassen som er supportet af material design som tilbyder flere hundrede forskellige ikoner. Men selve ikonet kan ikke noget for sig selv, jeg har derfor wrappet et <b>GestureDetector</b> widget. <br> Dette widget er ret interessant og vil blive dækket i et andet indlæg. Men kort fortalt har den en onTap parameter som lytter på et tap/tryk på skærmen for det widget som dette er wrappet omkring.
+                        <br><br></li>
+                        <li>Her kan jeg parse min egen onTap function som CreateProductHeader tager med.
+                            Dette samme gør jeg for stepTitel. Som bliver vist med en Headline5 teksttype. Som er en af vores egne prædefineret teksttyper, der matcher designet fra Figma. Jeg kan igen derfor minimere mængden af kode alle steder jeg ville brugen den teksttype.</li>
+
+                    </ol>
+                
+            </div>
+
+            <div style="width: 70%; margin-left: auto; margin-right: auto;" class="codeContainer">
+
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc; font-size: 17px;">
+                            
+    <span style="color: #d4ba51;">CreateProductHeader</span>(
+        stepTitel: <span style="color: #8396bd;">translate</span>(<span style="color: #61b36d;">'create_product.add_product_description_title'</span>),
+        onTap: <span style="color: #ca531f;">widget.back</span>,
+        ),
+                            </p>
+                        </code>
+                    </pre>
+                </div>
+            
+                <p class="blogcontext">
+                    Når jeg så kalder på CreaterProductHeader i et af stepsene vil jeg kunne udfylde parametrene derfra, så den specifikt passer til det step jeg er på. <b>Translate</b> er en package vi bruger til at lave oversættelser på tekster i appen som er statiske. I første omgang vil der kun være danske oversættelser, men på sigt vil det gøre det lettere at tilføje nye oversættelser. <br><br>
+                    For onTap parser jeg <b>widget.back</b> som er en funktion der er en parameter for det widget som jeg har kaldt CreateProductHeader i.
+                    Det vil sige at jeg parser den tidligere nævnte GestureDetectors onTap funktion videre til at andet widget - eller faktisk page.  <br><br>
+
+                    Fordi netop den her funktion skal gøre det samme for alle stepsene i oprettelses flowet, som er at den skal gå et step tilbage. Så jeg har i stedet for at definere den samme funktion i hvert step, håndtere det i <b>CreateProductPage</b>.
+                </p>
+
+                <p class="blogcontext">Ved første øjekast minder en page og et widget meget om hinanden - man ville sikkert godt kunne argumentere for at en page er et widget. Men det som gør sig gældende for en page er dens Scaffold widget - som kan ses som kroppen for de widget vi definere i den. Det betyder så også at alle widgets som jeg bruger indenfor Scaffold, låner "kroppen" af sit deres parent widget.
+                </p>
+
+                <div style="width: 100%; display: flex;">
+
+                
+    
+                <div class="codeContainer">
+                    <pre>
+                        <code>
+                            <p style="color: #ece4dc;">
+    class CreateProductPage extends ConsumerStatefulWidget {
+        CreateProductPage({Key? key}) : super(key: key);
+        
+        @override
+        ConsumerState<CreateProductPage> createState() => _CreateProductPageState();
+        }
+        
+        class _CreateProductPageState extends ConsumerState<CreateProductPage> {
+        <span style="color: #FF6C8A;">//1</span>
+        late final PageController _pageController = PageController();
+        
+        final _productTitleController = TextEditingController();
+        final _productDescriptionController = TextEditingController();
+        final _imagesController = ValueNotifier<List<String>>([]);
+        final _categoriesController = ValueNotifier<List<String>>([]);
+        final _pickupZipcodeController = ValueNotifier<DawaZipcode?>(null);
+        final _pickupAddressController = ValueNotifier<DawaAddress?>(null);
+        final _pricePerDay = TextEditingController(text: '20');
+        
+        @override
+        Widget build(BuildContext context) {
+            return Scaffold(
+            body: SafeArea(
+                child: GestureDetector(
+                onTap: () {
+                    FocusScopeNode currentFocus = FocusScope.of(context);
+        
+                    if (!currentFocus.hasPrimaryFocus) {
+                    currentFocus.unfocus();
+                    }
+                },
+                child: PrimaryBackground(
+                    <span style="color: #FF6C8A;">//2</span>
+                    child: PageView(
+                    physics: NeverScrollableScrollPhysics(),
+                    controller: _pageController,
+                    children: [
+                        AddImagesStep(
+                        imagesController: _imagesController,
+                        next: _nextStep,
+                        jumpToStep: _jumpToStep,
+                        ),
+                        ChooseImagesStep(
+                        imagesController: _imagesController,
+                        next: _nextStep,
+                        back: _previousStep,
+                        ),
+                        ChosenImagesStep(
+                        imagesController: _imagesController,
+                        next: _nextStep,
+                        back: _previousStep,
+                        jumpToStartStep: _jumpToStep,
+                        ),
+                        <span style="color: #FF6C8A;">//3</span>
+                        AddProductDescriptions(
+                            productTitleController: _productTitleController,
+                            productDescriptionController: _productDescriptionController,
+                            next: _nextStep,
+                            back: _previousStep),
+                            .......
+                    ],
+                    ),
+                ),
+                ),
+            ),
+            );
+        }
+                                                            </p>
+                                                        </code>
+                                                    </pre>
+                                                    
+                </div>
+
+
+                    <ol class="blogcontext">
+                        <li>Først og fremmest har jeg på denne page defineret nogle variabler som skal bruges når produktet skal oprettes. Naturligvis har de ikke nogle værdier endnu, men de får de jo længere bruger kommer i oprettelses flowet. <br><br> <ul>
+                            <li><b>Controllere</b> er ikke det samme i Flutter som de controllere jeg har lært om i C#, henholdsvis MVVM og MVC. Derimod skal de ses som en måde at opbevare en værdi eller state for et widget. Så på den måde når bruge navigere rundt på de forskellige steps, vil de angivet værdier ikke gå tabt. Omfanget for controller og <b>valuenotifier</b> er selvfølgelig lidt mere omfattende end bare det - så det vil blive dækket i et andet indlæg.</li>
+                            <li><b>PageControlleren</b> er ret essentielt for at vi kan manipulere med hvilken siden som er synligt i vores PageView.
+                            </li>
+                        </ul> <br><br>
+                        </li>
+                        <li>Et <b>PageView</b> er et widget som består af en "scrollable" liste af wigets/pages, der er defineres som dens children. Men i lige dette tilfælde skal brugeren ikke have mulighed for at scrolle, eftersom der er knapper til at navigere brugeren. Derfor har jeg sat dens parameter <b>physics</b> til <b>NeverScrollableScollPhysics()</b>, som neutralisere denne funktion. <br><br>
+                            <ul>
+                                <li>Dens children består af alle steps for oprettelses flowet i designets kronologisk rækkefølge (Jeg har undladt nogle steps i dette eksempel). Som man kan se tager de alle imod nogle forskellige parametre i form af controllere og funktioner - og det er nogle af disse funktioner som jeg nævnte tidligere der gældende for dem allesamme.</li>
+                            </ul>
+                        <br><br></li>
+                        <li><b>AddProductDescriptions</b> back funktion (widget.back fra tidligere) kalder en lokal funktion ved navn <b>_previousStep</b>.</li>
+
+                    </ol>
+                
+            </div>
+            <div style="width: 70%; margin-left: auto; margin-right: auto;" class="codeContainer">
+
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc; font-size: 17px;">
+                            
+    <span style="color: #d4ba51;">Future</span><span style="color: #b065a4;"> void</span> <span style="color: #8396bd;">_previousStep()</span><span style="color: #b065a4;"> async</span>{
+    <span style="color: #b065a4;">await</span> <span style="color: #ca531f;">_pageController</span>.<span style="color: #8396bd;">previousPage</span>(
+        duration: <span style="color: #d4ba51;">Duration</span>(milliseconds: <span style="color: #ca531f;">200</span>), curve: <span style="color: #d4ba51;">Curves</span>.<span style="color: #ca531f;">linearToEaseOut</span>);
+        <span style="color: #d4ba51;">FocusScope</span>.<span style="color: #8396bd;">of</span>(<span style="color: #ca531f;">context</span>).<span style="color: #8396bd;">unfocus</span>();
+        }
+                            </p>
+                        </code>
+                    </pre>
+                </div>
+
+                <p class="blogcontext">
+                    Det som denne funktion udføre er at kalde på _pageControllerens <b>previousPage</b> funktion, som vil navigere brugeren tilbage til den tidligere child i et PageView widget. Jeg har tilføjet en varighed på animationen for at gøre overgangen mere brugervenlig. <br><br>
+
+                    Funktionen returnere en <b>Future</b> void, det vil naturligvis sige ingenting. Men Future repræsentere et resultat fra en asynkron operation, som kan være uncompleted eller completed. I uncompleted state vil den vente til operationen færdiggøres eller smide en error. Normalt bruges asynkron kode når man gerne vil udføre nogle ting mens andre operationer færdiggøres, typisk vil det blive brugt i scenarier hvor man læser eller skriver til en database eller fil. <br>
+                    Det er ikke tilfældet her, men jeg vil stadig gerne sikre mig at det tidligere step bliver loaded uden problemer og med værdierne fra controllerne. <br><br>
+
+                    I næste part vil jeg vise hvordan jeg kommnikere med vores backend og rent faktisk får oprettet produktet i databasen.
+                </p>
+
+
+
 
     </div>
 

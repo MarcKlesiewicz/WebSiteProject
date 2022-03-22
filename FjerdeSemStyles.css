@@ -88,3 +88,8 @@ a {
   margin-top: 10px;
   border-radius: 5px;
 }
+
+.codeContainer {
+  background-color: #0e1a26;
+  border-radius: 10px;
+}
