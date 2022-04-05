@@ -1592,6 +1592,69 @@
 
     </div>
 
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Database omkostninger</h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">25-03-2022</h5>
+        <p class="blogcontext">
+            En database har tre overordnet formål, opbevaring af data, manipulering af data og hentning af data. Som en del af min database research vil jeg også gerne undersøge hvilket omkostninger som er forbundet med brugen af en database, mere specifik Firestore Databasen. <br><br>
+
+            <b>Hvad betaler du for?</b> <br>
+            En ting jeg vil give Google kredit for, er hvor transparente de er i ift. hvilket omkostninger som følger med deres services og helt specifik hvad du kommer til at betale for. Sammenlignet med en Realtime database hvor omkostningerne mere eller mindre stiger proportionalt med mængden af data du uploader og downloader. Så vil omkostningerne for en Cloud database afhænge af mængden af operationer du eller brugerne udføre - og med operationer mener jeg read, writes og deletes. <br><br>
+
+            Hver gang en bruger tilføjer eller ændre på et dokument i vores Firestore database, vil vi betale. Det samme gælder hvis brugeren henter data, f.eks. søger efter noget eller vælger at slette et dokument. Du har dog et specifikt antal af operation som dine bruger kan udføre om dagen før du skal betale.
+
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/firebase_pricing.png" alt="" style="height: 250px;">
+        </div>
+
+        <p class="blogcontext">
+            Antallet af operationer virker umildbart ud til at være højt og prisen er også overkommeligt, men det afhænger meget af hvilken applikation som det skal bruges til (eksempler kommer i næste hovedsektion). <br><br>
+
+            En anden ting du også betaler for er Cloud funktioner. Det kan måske være beregninger som udgør et af dine objekters felter. 
+            For eksempel hvis jeg laver en app hvor brugere kan rate en bog og jeg gerne vil fremvise en gennemsnitlig vurdering af den bog. Så er jeg nød til at have en cloud funktion som læser alle score tilknyttet til bogen og derved beregne gennemsnittet. <br><br>
+
+            Det er en måde at gøre det. Men her skal man opmærksom på at når du læser en score tæller det som et individuelt read. Det vil sige at hvis  vi 1000 brugere, hvor 100 af dem har anmeldt en bog, bruges der 100 reads på at udfylde den bogs rating. Det vil man naturligvis skulle gøre for hver enkelt bog, hvilket hurtigt kan løbe op i mange reads. <br>
+            Samtidig hvis der bliver tilføjet en ny score skal cloud funktionen køre igen, så nu 101 reads.
+            Der er findes selvfølgelig nogle alternativer til hvordan man kan gøre dette og også hvordan man kan komme udenom firestores gratis begrænsning. Blandt andet ved at bruge lidt mere avanceret matematik end bare dividere antallet med summen eller ved ikke at opdatere ratingen hver gang der bliver tilføjet en ny score. Det kunne også beregnes direkte i frontenden - men dette vil højst sandsynligt ikke være billigere. <br><br>
+
+            Derudover betaler man også en sum for mængden af data du opbevare og faktisk også mængden af bredbånd du bruger. Dette anses dog ifølge Cloud Firestore Pricing video, ikke som en omkostninger der har en stor indflydelse set i et større perspektiv. <br><br>
+
+            <b>Så hvilket apps passer Firestore bedst til?</b><br>
+            Nu ved vi helt præcist hvad det er vi betaler for, hvilket gør det nemmere for os at vurdere om Firestore er det rigtige database valg for os. Fordi i sidste ende afhænger det meget om hvilket app den skal bruges til og hvordan brugernes adfærd vil være. <br><br>
+
+            Et godt eksempel på hvor jeg ikke ville benytte Firestore, er i applikationer som ofte skal opdatere. <br>
+            Lad os sige jeg har en app hvor brugerne kan følge med i kursen på diverse kryptovalutaer. Selvom priserne ligger nogenlunde stabilt opdateres de normalt ca. hvert 15 sekund på den slags sider. Hvis så en af mine bruger har appen kørende i tre minutter og følger en kurs, skal den opdateres 12 gange = 12 reads. Lad os så sige at han har 10 kurser kørende og det samme har 500 andre bruger. Så har jeg pludselig 60.000 reads på tre minutter. Så rækker mine gratis operationer ikke så langt lige pludselig. <br><br>
+
+            Det vil sige at der hvor Firestore stråler skarpes, set fra et økonomisk perspektiv, er i cases som ikke indebære hyppige opdateringer. Det kunne f.eks. være en app som bruges til at dele madopskrifter. I sådanne en app vil der gå lang tid imellem writes og reads vil være centreret omkring få opskrifter og ikke hele databasen indhold på en gang. <br>
+            Men lad os nu sige at i den her madopskrifts app, skal brugerne kunne chatte med hinanden. Så afhænger det pludselig i hvilken skala brugerne kan chatte med hinanden i - om det bliver en dyr eller "billig" app at have på Firestore. <br><br>
+
+            I et en-til-en chatrum, hvor brugerne ca. sender en besked hvert 10. sekund i 5 minutter vil generer 60 writes og 120 reads. Dette virker ret overkommeligt, også selvom vi skalere antallet op til, lad os sige 50 chatrum = 3000 writes og 6000 reads. <br>
+            Dog er det blevet ret normalt at du kan have gruppe chat. Så hvis vi nu tager de bruger fra vores 50 chatrum (100 brugere) og smider dem ind gruppechat, så vil de alle naturligvis skulle opdateres når der bliver sendt en besked. Vi vil stadig stå med 3000 writes - men i stedet for 6000 reads, har vi 300.000. <br><br>
+
+            Pointen er at man skal gøre sig nogle ret klare overvejelser for hvordan du forventer at din app skal bruges og hvilket krav den indebære. På den måde kan man undgå at få sig nogle grimme økonomiske overraskelser og i værste tilfælde indse at du har brugt unødvendig tid på at opstille en database i Firestore - der så alligevel ikke kan bruges. 
+
+        </p>
+
+        <h5 class="blogcontext">Kilder</h5>
+
+        <ul class="blogcontext">
+            <li><a href="https://www.youtube.com/watch?v=6NegFl9p_sE&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=5&ab_channel=Firebase">Cloud Firestore Pricing | Get to know Cloud Firestore #3</a></li>
+            <li><a href="https://cloud.google.com/firestore/pricing">https://cloud.google.com/firestore/pricing</a></li>
+            <li><a
+                    href="https://aloa.co/blog/as-a-startup-should-use-firestore-for-my-app">https://aloa.co/blog/as-a-startup-should-use-firestore-for-my-app</a>
+            </li>
+        </ul>
+
+    </div>
+
 </body>
 
 </html>
