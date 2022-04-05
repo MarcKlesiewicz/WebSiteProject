@@ -1049,7 +1049,7 @@
 
     </div>
 
-    <div id="new" class="blogpost">
+    <div class="blogpost">
 
         <h2 class="blogcontext">Opret Produkt Flow - part 1</h2>
         <div style="display: flex;">
@@ -1317,6 +1317,278 @@
                         </a>
                     </li>
                 </ul>
+
+    </div>
+
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Strukturering af data</h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">15-03-2022</h5>
+        <p class="blogcontext">
+            Jeg har valgt at bruge tid på at undersøge hvilket muligheder der findes med indenfor strukturering af data med Firestore. Formålet var i første omgang naturligvis at finde ud af hvilket typer der er - derefter fordelene, ulemper/begrænsninger og hvilket mulige usecases man ville bruge den ene frem for den anden. <br> <br>
+
+            Jeg har kunne finde frem til tre helt overordnede strukturer indenfor Firestore. Dog findes der variationer af disse typer som fungere bedre i specifikke scenarier. 
+            Som eksempel lader vi som om jeg har skal implementere en et chatforum, hvor der selvfølgelig er brugere og forskellige chatrum med et overordnet emne. <br><br>
+
+            <b>Indlejret data i dokumenter:</b> er en af de mere simple former for datastruktur. Her vil vi have en collection for hver bruger i vores app som indeholde information om brugeren og et array af chatrum som brugeren deltager i. <br>
+            Dette er en nem måde at opstille sin data på og kan streamlines for alle brugerne. Det har dog sine begrænsninger når det kommer til skalerbarheden - så der er stor sandsynlighed for at hastigheden vil blive minimeret i takt med at antallet af brugere stiger. <br>
+            Denne data struktur vil fungere fint til fremvisning af en brugerprofil og deres aktive chatrum, da vi allerede har dataen direkte tilknyttet til brugeren og der skal derfor ikke køre yderlige queries.
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/data_struc_1.png" alt="" style="height: 250px;">
+        </div>
+
+        <p class="blogcontext">
+            <b>Subcollections: </b> vil man strukturere sin data med collections inde i dokumenter. I dette eksempel vil vores struktur være mere fleksibelt hvis mængden af bruger forbundet til chatrum stiger eller hvis vi vælger at tilføje flere chat rums. Så vil størrelsen på parent dokumentet altid forblive den samme størrelse. Dette har også sine fordele ift. quering af data. <br><br>
+            Lad os sige vi gerne ville have antallet af bruger i software chat. Med data strukturen før ville vi skulle checke hver enkel bruger om software chat fandtes i deres array af rooms - med subcollections har vi på forhånd en liste af bruger som er tilknyttet til de enkelte chatrum. <br>
+            Ulempen kommer i at det ikke er nemt at slette i subcollection når der eksistere data/dokumenter i den. Det vil sige at før vi sletter software chat skal subcollectionen af brugere før slettets.
+
+        </p>
+
+        <div style="text-align: center; width: 100%;">
+            <img src="images/data_struc_2.png" alt="" style="height: 400px;">
+        </div>
+
+        <p class="blogcontext">
+            <b>Root-level collections:</b>  opretter man separate collections for data som tydeligt adskiller sig fra hinanden. Root-level vil sige at de ligger på det yderste lag af ens firestore database. Denne form for data struktur egner sig især godt til når man gerne vil køre avanceret queries indenfor en collection og ifølge Google Cloud også til many-to-many relationships.
+            Hvis vi tager udgangspunkt i samme problemstilling fra før hvor vi gerne vil have antallet af bruger i chatrum - er dette ikke længere mulig med denne data struktur. 
+
+
+        </p>
+        
+        <div style="text-align: center; width: 100%;">
+            <img src="images/data_struc_3.png" alt="" style="height: 450px;">
+        </div>
+        
+        <p class="blogcontext">
+            Når man snakker om hvilken datastruktur der egner sig bedst til sin applikation kan jeg konkludere at det afhænger meget af hvordan man forventer at brugeren skal interager med dataen og hvilket informationer de skal præsenteres for. Derfor vil jeg mene at det en vigtig del at for afklaret nogle af disse spørgsmål tidligt i opstartet/kravs indsamlings fasen for at undgå unødig arbejde går spildt. <br><br>
+            Dette er naturligvis ikke de eneste måder at gøre det på og som sagt findes der variationer af de gennemgået strukturere. Men i sidste ende (i hvert fald når man arbejder med Firestore), er det vigtigt at strukturer sin data således at man undgår at læse unødig data, eftersom der også ligger et finansielt aspekt i de, som jeg vil dække i næste database indlæg.  
+        </p>
+
+
+        
+
+        <h5 class="blogcontext">Kilder</h5>
+
+        <ul class="blogcontext">
+            <li><a href="https://www.youtube.com/watch?v=o7d5Zeic63s&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=5&ab_channel=Firebase">Maps, Arrays and Subcollections, Oh My! | Get to know Cloud Firestore #4</a></li>
+            <li><a href="https://www.youtube.com/watch?v=haMOUb3KVSo&list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ&index=6&ab_channel=Firebase">How to Structure Your Data | Get to know Cloud Firestore #5</a></li>
+            <li><a
+                    href="https://cloud.google.com/firestore/docs/concepts/structure-data">https://cloud.google.com/firestore/docs/concepts/structure-data</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Genbrug dine widgets</h2>
+        <div class="frontendLabel" style="margin-right: 5px;">
+            <b>Frontend</b>
+        </div>
+
+        <h5 class="blogcontext">21-03-2022</h5>
+        <p class="blogcontext">
+            Jeg er på nuværende tidspunkt i gang med at implementere fremvisning brugerens udlejningsaftaler, set som en lejer. Det er en meget essentiel del af appen og skal derfor føles overskueligt og reagere brugervenligt - eftersom at du vil som lejer (alt efter på mængde af udlejninger) bruge meget tid her på at administrere nye anmodninger, kommende aftaler og afsluttede aftaler(review). <br><br>
+
+            Derfor syntes jeg det kunne være interessant at dokumentere dele af min arbejdsproces og fremgangsmåde. Den overordnede fremvisning af alle brugerens aftaler har jeg implementeret for nogle uger siden - og ser således ud.
+        </p>
+
+        <div style="text-align: center; width: 100%; ">
+            <img src="images/rental_lejer.png" alt="" style="height: 400px;">
+            <img src="images/rental_udlejer.png" alt="" style="height: 400px;">
+        </div>
+
+        <p class="blogcontext">
+            Lige nu kan brugeren horisontalt scolle igennem sine aftaler eller tilgå en historik af tidligere aftaler. Men der ligger mere information og data omkring en enkel aftale end hvad vi lige får fremvist her. Så brugeren skal også kunne tilgå denne information, som gøres gennem en onTap gesture på hvert card. <br> <br>
+
+            Billedet forneden er taget fra designet og illustrere hvordan data'en skal fremvises alt afhængig hvilken status aftalen har. Til venstre er aftalen(anmodningen) ny og afventer svar fra brugen. I midten er aftalen accepteret og brugerne vil nu kunne interagere med hinanden. Og til højre er aftalen(lejen) afsluttet og afventer et review af lejeren. <br> <br>
+
+            Der går naturligvis en del information igen på siderne, men der er især et element som skiller sig fra de andre - og det er fremvisningen af produktbilledet, lokationen og udlejningsperioden.
+        </p>
+        
+        <div style="text-align: center; width: 100%;">
+            <img src="images/rental_info.png" alt="" style="height: 450px;">
+        </div>
+        
+        <p class="blogcontext">
+            Baseret på hvilken status aftalen har vil dette element har forskellige tilstande. Det var her jeg fik ideen til dette indlæg - fordi dette er et fint eksempel på hvordan mere komplicerede widgets kan blive genbrugt i forskellig scenarier. 
+            Så i stedet for at lave, til dels, det samme widget flere gange, vil jeg lave et som nemt kan genbruges på alle siderne og måske også andre steder. <br><br>
+
+            Efter at have arbejdet med Flutter i et stykke tid, er jeg begyndt at "visualisere" designets elementer lidt på samme måde som jeg viste til sidst i <b>Alt er et Widget</b> indlægget. Et widget-tree i klodser. <br><br>
+
+            Så ud fra designet, hvor en aftale afventer svar, får jeg dette widget-tree.
+
+        </p>
+        
+        <div style="text-align: center; width: 100%;">
+            <img src="images/widget_tree_rental_info.png" alt="" style="height: 450px;">
+        </div>
+
+        <p class="blogcontext">
+            Jeg laver naturligvis ikke sådan en analyse for hvert element. Men det hjælpe mig med at udføre implementeringen ved at visualisere det på denne måde. <br><br>
+            Et af de helt fundamentale principper indenfor Flutter (og mange andre kodesprog), er så vidt muligt at genbruge kode. Så når jeg skal implementere et widget som dette, vil jeg gerne lave det så generisk, at det kan bruge i andre sammenhæng. 
+            Kodeudklippet forneden viser hvordan jeg har implementeret den første "version" - RentalStatus.paid
+
+        </p>
+
+        <div style="width: 100%; display: flex;">
+
+                
+    
+            <div class="codeContainer">
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc;">
+    class RentalInfomationCard extends StatefulWidget {
+    <span style="color: #FF6C8A;">//1</span>
+    final RentalModel rental;
+    final bool renterMode;
+    const RentalInfomationCard(
+    {Key? key, required this.rental, required this.renterMode})
+    : super(key: key);
+
+    @override
+    State<RentalInfomationCard> createState() => _RentalInfomationCardState();
+    }
+
+    class _RentalInfomationCardState extends State<RentalInfomationCard> {
+    @override
+    Widget build(BuildContext context) {
+    <span style="color: #FF6C8A;">//2</span>
+    if (widget.rental.status.name == RentalStatus.Paid.name)
+        return WhiteCard(
+            child: Column(
+                children: [
+                Container(
+                    clipBehavior: Clip.antiAlias,
+                    height: 150,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                        children: [
+                            Expanded(
+                            <span style="color: #FF6C8A;">//3</span>
+                                child: Image.network(
+                                widget.rental.product.images.first.image.url,
+                                fit: BoxFit.cover,
+                                ),
+                            ),
+                            Expanded(
+                            child: IgnorePointer(
+                            <span style="color: #FF6C8A;">//4</span>
+                            child: FlutterMap(
+                                options: MapOptions(
+                                    center: widget.renterMode
+                                    ? LatLng(
+                                        widget.rental.product.approximateLocation
+                                        .latitude,
+                                        widget.rental.product.approximateLocation
+                                        .longitude)
+                                        : LatLng(
+                                            widget.rental.product.pickupLocation!
+                                            .latitude,
+                                            widget.rental.product.pickupLocation!
+                                            .longitude),
+                                            zoom: 13),
+                                            <span style="color: #FF6C8A;">//5</span>
+                                            layers: [
+                                            TileLayerOptions(
+                                            urlTemplate:
+                                            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                                            subdomains: ['a', 'b', 'c'],
+                                            attributionBuilder: (_) {
+                                                return Text("© OpenStreetMap contributors");
+                                            },
+                                            ),
+                                            if (!widget.renterMode)
+                                            MarkerLayerOptions(markers: [
+                                                Marker(
+                                                width: 25,
+                                                height: 25,
+                                                point: LatLng(
+                                                    widget.rental.product.pickupLocation!
+                                                    .latitude,
+                                                    widget.rental.product.pickupLocation!
+                                                        .longitude),
+                                                        builder: (marker) => Container(
+                                                            child: SvgPicture.asset(
+                                                                'assets/svgs/map_pin.svg'),
+                                                        ),
+                                                ),
+                                                ]),
+                                            if (widget.renterMode)
+                                                CircleLayerOptions(circles: [
+                                                    CircleMarker(
+                                                        useRadiusInMeter: true,
+                                                        borderColor: AppTheme.of(context).secondary,
+                                                        color: AppTheme.of(context)
+                                                        .secondary
+                                                        .withOpacity(0.3),
+                                                        point: LatLng(
+                                                            widget.rental.product.approximateLocation
+                                                            .latitude,
+                                                            widget.rental.product.approximateLocation
+                                                            .longitude),
+                                                            radius: 500.0),
+                                                    ]),
+                                                ],
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    <span style="color: #FF6C8A;">//6</span>
+                    DateDisplay(
+                        price: widget.rental.product.pricePerDay.amount,
+                        currency: widget.rental.product.pricePerDay.currency,
+                        startDate: widget.rental.period.start,
+                        endDate: widget.rental.period.end,
+                        hideTotalPeriod: false,
+                  )
+                ],
+              ),
+            );
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+                <ol class="blogcontext">
+                    <li>RentalInformationCard som er navnet widget'en tager imod to parametre, en RentalModel og en boolean. 
+                        <ul>
+                            <li>Min RentalModels variabler skal blandt andet bruges til at udfylde felter, som parametre til andre widgets og afgøre hvilken version af RentalInformationCard som skal bygges.</li>
+                            <li>Booleanen renterMode er en parameter som jeg bruger til afgøre om bruger har tilgået en aftale som udlejer eller lejer</li>
+                        </ul>
+                        <br><br>
+                    </li>
+
+                    <li>Der findes flere måder at gøre det på. Men jeg har valgt at tjekke om min tidligere nævnte RentalModel's status stemmer overens med en af mine prædefineret RentalStatus - som er en enum. For derefter at returnere et WhiteCard widget og det her vi begynder at kunne se starten på vores widget-tree. <br><br>
+                    </li>
+
+                    <li>Image er et widget som har flere forskellige constructorere og i dette tilfælde vil jeg gerne anvende network. Når man har oprettet et produkt vil dens tilknyttet billeder blive uploaded og hostet fra en af Little Giants servere. Et produkt har en liste af ProductImageModel, der har en StorageResourceModel, som opbevare en URL for hvert enkelt billede. Dette kan bruges som   Image.network's source. <br><br>
+                    </li>
+
+                    <li>FlutterMap er et tredjeparts library jeg bruger til at fremvis en et interaktivt kort. Jeg har dog valgt at wrappe det med en IgnorePointer, for ikke at gøre det interaktivt. Baseret på om brugeren skal have fremvist widgetet som lejer eller udlejer, eller om aftalen er accepteret, bruger jeg rentermode i et ternary. På den måde kan jeg enten vise en den præcise lokation eller en cirka lokation.
+                    Det er et krav fra PO at brugerne ikke vil kunne se den nøjagtige lokation for produktet før aftalen er accepteret - af sikkerhedsmæsissige grunde.<br><br>
+                    </li>
+
+                    <li>FlutterMap har en parameter som hedder layers, som er en liste af LayerOption widgets. Med layers kan jeg tilføje ekstra UI elementer indenfor mit kort. Igen, afhængig af renterMode, fremviser jeg enten en pin/nål eller en transparant cirkel baseret på cirka lokationen.<br><br>
+                    </li>
+
+                    <li>DateDisplay er et andet widget jeg har defineret fra opret produkt flowet, og skal blot fremvis udlejnings periode, samt antal dage og pris.<br><br>
+                    </li>
+
+                </ol>
+            
+        </div>
 
     </div>
 
