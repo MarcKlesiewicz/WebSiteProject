@@ -1655,6 +1655,165 @@
 
     </div>
 
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">Genbrug dine widgets</h2>
+        <div class="frontendLabel" style="margin-right: 5px;">
+            <b>Frontend</b>
+        </div>
+
+        <h5 class="blogcontext">29-03-2022</h5>
+        <p class="blogcontext">
+            Validering af brugernes input kan udføres på mange måder. Som jeg nævnte i Firebase projekt #1 indlægget, kunne jeg validere om hvilken authentication brugeren havde og derved begrænse brugerens muligheder får at manipulere med min Firestore database.
+            Dog er det vigtigt som frontend udvikler at gøre brugerne opmærksomme på disse begrænsninger eller ukorrekte input, for at sikre en brugervenlig oplevelse og naturligvis uhensigtsmæssige kald til vores API. <br><br>
+
+            Få at give et eksempel på hvordan jeg validere brugernes input i vores projekt har jeg lavet en simple applikation, som består af to tekstfelter, en knap og et ikon.
+        </p>
+
+        <div style="text-align: center; width: 100%; ">
+            <img src="images/validate_1.png" alt="" style="height: 400px;">
+            <img src="images/validate_2.png" alt="" style="height: 400px;">
+            <img src="images/validate_3.png" alt="" style="height: 400px;">
+        </div>
+
+        <p class="blogcontext">
+            Der er flere steder i vores Rento projekt hvor vi gerne vil sikre os at brugeren har indtastet gyldige værdier, før de sender en request til vores API. I de fleste tilfælde vil det være TextFormFields som tager imod disse værdier. Forneden er et kode udklip af applikationen.
+        </p>
+        
+
+        <div style="width: 100%; display: flex;">
+
+                
+    
+            <div class="codeContainer">
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc;">
+
+    class _MyHomePageState extends State<MyHomePage> {
+        <span style="color: #FF6C8A;">//1</span>
+        final _formKey = GlobalKey<FormState>();
+        late bool _valid = false;
+      
+        @override
+        Widget build(BuildContext context) {
+          return Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: Text(widget.title),
+            ),
+            body: Center(
+              //
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                <span style="color: #FF6C8A;">//2</span>
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: 'Enter your username',
+                        ),
+                        <span style="color: #FF6C8A;">//3</span>
+                        validator: (v) {
+                          if (v == null || v == "") {
+                            return 'Required';
+                          }
+                          if (v.length < 2) {
+                            'Must be at least 2 characters';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: 'Enter your password',
+                        ),
+                        <span style="color: #FF6C8A;">//4</span>
+                        obscureText: true,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r"[0-9]*"))
+                        ],
+                        validator: (v) {
+                          if (v == null || v == "") {
+                            return 'Required';
+                          }
+                          if (v.length < 8) {
+                            'Invalid password';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextButton(
+                        child: const Text('Validate', style: TextStyle(fontSize: 28)),
+                        onPressed: _validate,
+                      ),
+                      if (_valid)
+                        const Icon(
+                          Icons.check,
+                          size: 80,
+                          color: Colors.green,
+                        ),
+                      if (!_valid)
+                        const Icon(
+                          Icons.close_sharp,
+                          size: 80,
+                          color: Colors.red,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+      
+        void _validate() {
+          setState(() {
+            <span style="color: #FF6C8A;">//5</span>
+            if (_formKey.currentState!.validate()) {
+              _valid = true;
+            } else {
+              _valid = false;
+            }
+          });
+        }
+      }
+    
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+            
+            <ol class="blogcontext">
+                <li>Jeg instantiere først to variabler. _valid bruger jeg kun til at fremvise de forskellige ikoner og er ikke så vigtigt. Derimod er min _formkey lidt mere interessant. GlobalKey er en unik identifier som gør det muligt at udskifte ens parent widget hvor som helst i din app, uden at miste dens state. Eller kan du også bruge den til at tilgå information omkring andre widgets i forskellige dele af ens widget-tree. Det er den sidste  jeg bruger det til her. Den er af typen FormState, som gør det muligt at validere hvert FormField som vil være underlæggende for mit Form widget. <br><br>
+
+                </li>
+    
+                <li>I dette eksempel vil jeg nemlig gerne kunne unik identificere mit Form widget, så jeg kan lave en validering af den samlede form senere. En Form kan ses som en container som består af en eller flere FormFields og den tager imod en parameter som er mit _formkey.<br><br>
+                </li>
+    
+                <li>Det er natiurligvis best practice at navigere brugeren i den rigtige retning når de har angivet forkert input. TextFormField er default Flutter widget som har et inputfelt og et hint til hvad inputtet skal være (labelText). Men derudover har den også en validator parameter. Denne validator er en funktion som tager imod en string og returnere en string. V er vores value fra TextFormFielden og med en simple if statement kan vi returnere et response til brugerens input.
+                    <br><br>
+                </li>
+    
+                <li>For yderligere at undgå bruger indtaster noget ugyldigt kan man angive hvilken slags input, som forventes. Der er to måder. Den ene er keyBoardType parameteren, den vil jeg låse tastaturet til kun at vise numre. Men brugerne vil stadig kunne kopiere em tekst ind i feltet. Så derfor bruger jeg også inputFormatter parameter, til at sikre den indtastede værdi er karakter mellem 0 og 9.<br><br>
+                </li>
+    
+                <li>Når Validate knappen bliver tappet, kan jeg nu bruge min _formKey til at validere mine TextFormFields. currentState sikre at vores GlobalKey har en state (FormState). validate() funktionen tjekker alle FormFields i min Form og returnere true hvis der ikke er nogle error.
+                </li>
+    
+            </ol>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
