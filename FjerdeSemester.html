@@ -1388,7 +1388,7 @@
 
     <div class="blogpost">
 
-        <h2 class="blogcontext">Genbrug dine widgets</h2>
+        <h2 class="blogcontext">Genbrug widgets</h2>
         <div class="frontendLabel" style="margin-right: 5px;">
             <b>Frontend</b>
         </div>
@@ -1655,9 +1655,9 @@
 
     </div>
 
-    <div id="new" class="blogpost">
+    <div class="blogpost">
 
-        <h2 class="blogcontext">Genbrug dine widgets</h2>
+        <h2 class="blogcontext">Validering</h2>
         <div class="frontendLabel" style="margin-right: 5px;">
             <b>Frontend</b>
         </div>
@@ -1811,6 +1811,42 @@
     
             </ol>
         </div>
+
+    </div>
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Lokal persistens med HIVE</h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">06-04-2022</h5>
+        <p class="blogcontext">I starten da jeg begyndte at undersøge hvilket persistens muligheder der var med Flutter, fandt jeg en som brandet sig med at være utrolig hurtig og nem at implementere, Hive. <br>
+            Når jeg eksperimentere med mere simple applikationer som højst sandsynligt kun vil blive set af mig, er det meget rart ikke at skulle bruge for meget tid på at rode opsætning af databaser (med mindre projektet omfatter det). <br> <br>
+            
+            Hive er en ligesom Firestore en NoSQL database. Men i stedet for at lagring af dataen ender på Googles server, så er en Hive en lokal persistens løsning. Det vil sige at alle operationer som udføres i applikationen, create, delete osv. Foregår og opbevares lokalt på enheden. Det er derfor heller ikke nødvendigt at enheden har forbindelse til nettet. <br><br>
+            
+            For en som ofte bare gerne vil lave nogle simple applikationer, med stadig have en eller anden form for persistens. Vil jeg vurdere Hive som en attraktiv løsning. <br>
+            Det her med at opbevare data lokalt er noget som det fleste applikationer gør nu om dagen - og gøres i de fleste tilfælde ved at cache data til enheden sidste gang den havde forbindelse til databasen. <br><br>
+            
+            Det som adskiller Hive fra nogle af det andre løsninger er, at gøre få ting, men gøre dem virkelig godt og hurtigt. Den går under kategorien lightweight database, som vil sige at der også er nogle begrænsninger for hvor kompliceret ens datastruktur, relationer og queries kan være.
+            CRUD operationer og hastighed er der hvor Hive brillere stærkest. 
+            </p>
+
+            <div style="text-align: center; width: 100%; ">
+                <img src="images/Hive_chart.png" alt="" style="height: 400px;">
+            </div>
+            
+            <p class="blogcontext">
+                Billedet foroven er taget fra Hives eget github repository og illustrere en benchmark test på 1000 read og 1000 write operationer med forksellige lightweight databaser. Her er det ret tydeligt hvor hurtigt operationer kan udføres med Hive. Dog skal man også forholde sig kritisk og tage tester som disse med et gram salt. Det kan være svært at objektivt sammenligne databaser, eftersom de at lavet til forskellige formål. <br><br>
+
+                Hive er en Key-value database, som jeg også nævnte kort tidligere i mit 'Hvad er en NoSQL database' indlæg. Det er som også tidligere nævnt en af de mere simplere dataopbevarings paradigmer - men er til gengæld hurtig. Datastrukturen er opbygget af en unik identificer der er ens "Key", som er associereret med et stykke data/værdi der er "Valuen". Denne datastruktur er er bedre kendt som dictionary eller hash table. <br><br>
+                    
+                I forhold til sikkerhed, er det også muligt med Hive at tilføje kryptering af følsom data. Hive benytter AES-256 ecryption, der anses blandt de mest matematiske komplekse krypteringer som findes. Denne krypterings algoritme refereres primært til plaintext consealing og udføres gennem 14 "transformations-runder" som gør det næste umuligt at dekryptere. Sikkerheden bliver vurderet baseret på kompleksiteten/varigheden det tager at brute-force krypteringen - hvor AES-256 anses som et kryperings overkill, da den er estimeret til trilliarder af år. <br><br>
+
+                I næste database indlæg vil jeg demonstrere en simple applikation som jeg har brygget med Hive.
+
+                </p>
 
     </div>
 
