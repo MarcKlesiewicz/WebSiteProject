@@ -1893,6 +1893,200 @@
 
     </div>
 
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Indkøb med HIVE</h2>
+        <div class="databaseLabel" style="margin-right: 5px;">
+            <b>Database</b>
+        </div>
+
+        <h5 class="blogcontext">22-04-2022</h5>
+        <p class="blogcontext">For at demontere implementering af persistens til sit projekt med Hive, har jeg udviklet en applikation med Flutter som kan udføre CRUD operationer. Jeg vil dokumentere min proces for at redegøre simpliciteten af Hive. <br><br>
+
+            Applikationen jeg har brygget er en indkøbsliste hvor du kan tilføje en vare og antal, redigere en enkel vare og slette en vare. Læg mærke til at jeg på et tidspunkt lukker appen ned og genstarter den, for at demonstrere dataen ikke er gået tabt - selvom sessionen blev afsluttet. <br><br>
+            
+            <a href="https://github.com/MarcKlesiewicz/Hive_GroceryList">Se Github repo her</a>
+            
+            </p>
+            
+            <div style="text-align: center; width: 100%; ">
+                <video controls autoplay muted height="500" width="640">
+                    <source src="images/hive_grocery.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+
+            </div>
+            
+            <p class="blogcontext">
+                Hive er en Flutter package (faktisk også skrevet 100% i Dart), hvilket vil sige at man nemt kan hente det ned til sit projekt med følgende kommandoer i terminalen <br><br>
+
+                <i>flutter pub add hive <br>
+                    flutter pub add hive_flutter</i> <br><br>
+
+                Disse kommandoer vil tilføje nogle plugins under ens dependencies i flutter projekts pubspec.yaml filen. Denne fil bliver selv genereret når man starter et nyt flutter projekt og består af metadata omkring projektet - såsom navn, version, environment/SDK, assets osv. <br><br>
+
+                Herefter kan jeg initialisere Hive i main() funktionen af appen. <br>
+                </p>
+
+                <div style="width: 50%; margin-left: auto; margin-right: auto;">
+                    <div class="codeContainer">
+                        <pre>
+                            <code>
+                                <p style="color: #ece4dc;">
+            void main() async {
+                WidgetsFlutterBinding.ensureInitialized();
+                await Hive.initFlutter();
+                await Hive.openBox('grocery_box');
+                runApp(const MyApp());
+                }
+
+                                                                </p>
+                                                            </code>
+                                                        </pre>
+                    </div>
+
+                </div>
+                
+                <p class="blogcontext">I Hive bliver data opbevaret og organiseret  i "Boxe". En box kan sammenlignes med et table i SQL, men uden strukturen og kan indeholde hvad som helst. Før jeg kan benytte en box, skal den først åbnes. Dette behøves nødvendigvis ikke blive gjort i main funktionen, men da denne applikation kun har en page, giver det mening at gøre det så snart applikationen startes.
+                    Når en box bliver åbnet læses alt dens data fra dens lokale storage (min telefon), ind i appen.
+                </p>
+                
+                <div style="width: 50%; margin-left: auto; margin-right: auto;">
+                    <div class="codeContainer">
+                        <pre>
+                            <code>
+                                <p style="color: #ece4dc;">
+            final _groceryList = Hive.box('grocery_box');
+
+                                                                </p>
+                                                            </code>
+                                                        </pre>
+                    </div>
+
+                </div>
+
+                <p class="blogcontext">Jeg kan herefter nemt tilgå en specifik box og initialisere et objekt med min grocery_box's værdi. Denne værdi kommer dog i form af et JSON objekter og skal derfor mappes om til til key value pair for at jeg nemmere kan arbejde de enkelt værdier senere.
+                </p>
+
+                <div style="width: 60%; margin-left: auto; margin-right: auto;">
+                    <div class="codeContainer">
+                        <pre>
+                            <code>
+                                <p style="color: #ece4dc;">
+    void _refreshItems() {
+        final data = _groceryList.keys.map((key) {
+            final value = _groceryList.get(key);
+            return {"key": key, "name": value["name"], "quantity": value['quantity']};
+        }).toList();
+        setState(() {
+            _items = data.reversed.toList();
+            // reversed is used to sort items in order from the latest to the oldest
+        });
+                                                                </p>
+                                                            </code>
+                                                        </pre>
+                    </div>
+
+                </div>
+
+                <p class="blogcontext">_refreshItems er en funktion som jeg bruger til først at lave en liste af key-value værdier ved hente tidligere nævnte _groceryList's keys og mappe hver enkelte item som stemmer overens med en key. Det er også her jeg definere hvad felterne for en value indebære. <br>
+                    Jeg kalder derfter setState på en tom list af key-value pairs som bliver initialiseret med data objektet i en omvendt rækkefølge for at få det sidst tilføjet vare først. <br><br>
+                    
+                    <b>CRUD</b> <br>
+                    Det næste kode segment er mine CRUD funktioner, som taler meget for så sig selv og kræver ikke den store forklaring.
+                    Hive bruger add, get, put, delete som sine operationer og kalder på min _refreshItems funktion igen hver gang for sikre UI opdatere sig med det samme.
+                    
+                </p>
+
+                <div style="width: 55%; margin-left: auto; margin-right: auto;">
+                    <div class="codeContainer">
+                        <pre>
+                            <code>
+                                <p style="color: #ece4dc;">
+        // Create new item
+        Future<void> _createItem(Map<String, dynamic> newItem) async {
+            await _groceryList.add(newItem);
+            _refreshItems(); // update the UI
+        }
+
+        // Retrieve a single item from the database by using its key
+        Map<String, dynamic> _readItem(int key) {
+            final item = _groceryList.get(key);
+            return item;
+        }
+
+        // Update a single item
+        Future<void> _updateItem(int itemKey, Map<String, dynamic> item) async {
+            await _groceryList.put(itemKey, item);
+            _refreshItems(); // Update the UI
+        }
+
+        // Delete a single item
+        Future<void> _deleteItem(int itemKey) async {
+            await _groceryList.delete(itemKey);
+            _refreshItems(); // update the UI
+            // Display a snackbar
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('An item has been deleted')));
+        }
+                                  
+                                                                </p>
+                                                            </code>
+                                                        </pre>
+                    </div>
+
+                </div>
+
+                <p class="blogcontext">Det sidste kode segment er ListView builderen som jeg bruger til at fremvis en list af alle vare i tidligere nævnte  _items.  Jeg udfylde de enkelte felter title og subtitle med værdien som stemmer overens med en det nuværende items værdier. Her er det naturligvis vigtigt at  parametrene 'name' og 'quantity' bliver skrevet præcis på samme måde som de blive i _refreshItems funktionen. 
+                </p>
+
+                <div style="width: 55%; margin-left: auto; margin-right: auto;">
+                    <div class="codeContainer">
+                        <pre>
+                            <code>
+                                <p style="color: #ece4dc;">
+        ListView.builder(
+            // the list of items
+            itemCount: _items.length,
+            itemBuilder: (_, index) {
+                final currentItem = _items[index];
+                return Card(
+                color: Colors.orange.shade100,
+                margin: const EdgeInsets.all(10),
+                elevation: 3,
+                child: ListTile(
+                    title: Text(currentItem['name']),
+                    subtitle: Text(currentItem['quantity'].toString()),
+                    trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                        // Edit button
+                        IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () =>
+                                _showForm(context, currentItem['key'])),
+                        // Delete button
+                        IconButton(
+                            icon: const Icon(Icons.delete),s
+                            onPressed: () => _deleteItem(currentItem['key']),
+                        ),
+                        ],
+                    )),
+                );
+            }),
+                          
+                                                                </p>
+                                                            </code>
+                                                        </pre>
+                    </div>
+
+                </div>
+
+                <p class="blogcontext">Dette konkludere enlig implementation af Hive i et Flutter projekt. Jeg vil give dokumentationen ret i simpliciteten af Hive og jeg forventer selv at eksperimentere yderligere med det i andre projekter.
+                </p>
+
+    </div>
+
 </body>
 
 </html>
