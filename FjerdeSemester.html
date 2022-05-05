@@ -2086,6 +2086,187 @@
                 </p>
 
     </div>
+    <div id="new" class="blogpost">
+
+        <h2 class="blogcontext">Kommunikation med backend/API (Anmod lejeaftale)</h2>
+        <div class="frontendLabel" style="margin-right: 5px;">
+            <b>Frontend</b>
+        </div>
+
+        <h5 class="blogcontext">29-04-2022</h5>
+        <p class="blogcontext">Under dette projekt har der være en tydelig opdeling af frontend og backend implementationer. Dette gælder primært for selve kildekoden. I tidligere projekter som jeg arbejdet på under denne uddannelse af har frontend og backend altid blevet lavet i det sammen projekt. <br>
+            Det vil sige at vi havde buissness logik liggene sammen med markup language og at vi ikke havde behov for at kontakte en API for at udføre operationer til en ekstern database. <br><br>
+            
+            I dette indlæg vil jeg gerne redegør for processen da jeg implementerede bruger scenariet "Som lejer skal jeg kunne leje et produkt". Flowet for denne operation kan ses i videoen herunder. <br><br>
+        </p>
+        
+        <div style="text-align: center; width: 100%; ">
+            <video controls autoplay muted height="500" width="640">
+                <source src="images/rental_request.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <p class="blogcontext">Udlejnings flowet består af tre dele, en fremvisning af produktets informationer, valg af udlejningsperiode og en opsamling på forespørgslen, hvor du kan bekræfte lejen. I starten af projektet var der en forudsætning om at betaling også skulle foregå gennem Rento, dette er ikke længere et krav og bruger bliver derfor ikke navigeret videre til betaling muligheder. <br><br>
+
+            Men før jeg kan oprette en lejeaftale (Rental Request), skal jeg opstille models, mutations, providers og naturligvis en funktion som kan tage imod brugerens input. <br><br>
+            
+            <b>Model (Freezed)</b> <br>
+            Med Dart bliver man bedt om at skrive en god del "boilerplate" kode for selv simple klasser. Du vil typisk gerne have en klasse som acceptere sine værdier med en constructor, det kunne også brugbart med en toString() override, fromJson eller en copyWith funktion osv. 
+            Allerede dette er en god portion kode, som du skal skrive for hver model du skal bruge i projektet + der er en chance for at du skriver noget forkert. <br><br>
+            
+            For at slippe for den hovedpine bruger vi en extension i Rento som hedder Freezed. Med denne extension kan vi med få klik og minimal kode genere freezed klasser af en simple model. Du vil have en model til at angive modellens parameter i og derefter kan vi køre builde_runner(et plugin)  kommandoen flutter pub run build_runner watch --delete-conflicting-outputs, som vil generer to freezed klasser med tidligere nævnte funktionalitet og meget mere. <br><br>
+            
+            <b>GraphQL</b> <br>
+            I Rento bruger vi GraphQl, der er et query language som vi både bruger i frontend og backend. I Backend bruges GraphQLs type system til at beskrive et skema af f.eks. en RentalModel. Dette skema, samt alle andre skemaer/modeller vil vi kunne tilgå i GraphQL's IDE - Playground.
+        </p>
+        
+        <div style="text-align: center; width: 100%; ">
+            <img src="images/Playground.png" alt="" style="height: 500px;">
+        </div>
+        
+        <p class="blogcontext">I Playground har vi et oversigt over alle vores models, mutations(create, update og delete) og queries(read). Derudover kan vi også manuelt teste operationerne derinde, for at se om de virker. <br>
+            Billedet ovenfor illustrere Playground IDE'en. Til højre kan man se requestRental mutationen, hvilket errors den kan kaste, hvilket model/objekt den opretter (RentalModel) og hvilket argumenter den tager imod. Inputtet er en RequestRentalInput og består af produktets id, en leje periode (start og slut) og en note som er valgfri (har ikke et ! tegn). <br><br>
+            
+            <b>Mutation</b><br>
+            Processen for at tilføje en mutation til projektet er meget lige til. Vi har en fil hvor alle mutationer er samlet (dog adskilt af modeller), og deri kan jeg skrive GraphQL operationen således:
+            
+        </p>
+
+        <div style="width: 55%; margin-left: auto; margin-right: auto;">
+            <div class="codeContainer">
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc;">
+        final requestRentalMutation = gql(r'''
+        mutation requestRental($input: RequestRentalInput!) {
+            requestRental(input: $input) {
+            ''' +
+            RentalModel.fields +
+            '''
+            }
+        }
+        ''');              
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+        </div>
+
+        <p class="blogcontext">
+            <b>Provider og notifier</b> <br>
+            I dette projekt bruger vi RiverPod som vores statemanagement værktøj. Jeg syntes at emnet ligger udenfor scoped af dette indlæg og vil derfor blive dækket i næste frontend indlæg. <br>
+            Men i vores RequestRentalNotifier har jeg lavet en funktion som kontakter vores API gennem en GraphQL provider, som derefter udføre mutationen.
+        </p>
+
+        <div style="width: 65%; margin-left: auto; margin-right: auto;">
+            <div class="codeContainer">
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc;">
+        <span style="color: #FF6C8A;">//1</span>
+        Future<void> requestRental(RequestRentalInput input,
+                Function(RentalModel) onsuccess, Function onAlreadyRequested) async {
+            state = state.copyWith(loading: true);
+            <span style="color: #FF6C8A;">//2</span>
+            final response = await read(gqlClientProvider).mutate(MutationOptions(
+                document: requestRentalMutation, variables: {"input": input.toJson()}));
+            <span style="color: #FF6C8A;">//3</span>
+            if (response.hasException) {
+                handleGraphqlExceptionResponse(read, response.exception!, errorHandler: {
+                "ALREADY_REQUESTED_RENT_ERROR": (_) => onAlreadyRequested()
+                });
+            } else {
+            <span style="color: #FF6C8A;">//4</span>
+                final data = RentalModel.fromJson(response.data!['requestRental']);
+                onsuccess(data);
+            }
+            state = state.copyWith(loading: false);
+            }           
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+        </div>
+
+        <ol class="blogcontext">
+            <li>Først definere jeg argumenter som funktionen skal tage imod. Her har vi naturligvis tidligere nævnte input, samt to funktioner onSuccess og onAlreadyRequested som er to scenarier jeg gerne vil håndtere.<br><br>
+            </li>
+
+            <li>Derefter initialisere jeg en variable (response) som er et QueryResult objekt. Det er ved hjælp af GraphQL Provideren (gqlClientProvider) jeg kontakter vores API og dette tilfælde kalder jeg mutate funktionen som returnere en QueryResult. 
+                Denne funktion tager imod en MutationOptions der har to argumenter, document som er GraphQL mutationen fra tidligere kodeudklip og variables, som er inputtet. Her kan vi drage nytte af vores genereret freezed klasses funktion toJson().
+                <br><br>
+            </li>
+
+            <li>Før jeg prøver håndtere succes scenariet tjekker jeg om vores QueryResult objekt har nogle exceptions. Hvis ja - kastes de i debug konsollen. Som udgangspunkt skal vi teste denne operation ind til den ikke længere smider nogle exceptions. <br> Men i nogle tilfælde vil vi gerne håndtere fejlen og gøre brugeren opmærksomme på hvorfor operationen ikke lykkedes. <br>
+                I dette scenarie vil jeg gerne håndtere at brugerne ikke forsøger at leje det samme produkt, med den samme udlejningsperiode. Hvordan det håndteres kommer jeg til senere.                
+                <br><br>
+            </li>
+
+            <li>Til sidst hvis operationen lykkedes parser jeg et RentalModel objekt (data) sammen med vores onSuccess funktion
+            </li>
+
+        </ol>
+
+        <div style="width: 65%; margin-left: auto; margin-right: auto;">
+            <div class="codeContainer">
+                <pre>
+                    <code>
+                        <p style="color: #ece4dc;">
+                Future<void> _requestRental() async {
+                    <span style="color: #FF6C8A;">//1</span>    
+                    final input = RequestRentalInput(
+                        widget.productId,
+                        RequestRentalPeriodInput(_startAndEnd[0], _startAndEnd[1]),
+                        _noteController.text);
+                    <span style="color: #FF6C8A;">//2</span>
+                    await ref.read(requestRentalProvider.notifier).requestRental(
+                    input,
+                    (rental) {
+                        <span style="color: #FF6C8A;">//3</span>
+                        ref
+                            .read(rentalsProvider(RentalFilters(RentalStatus.Paid, true))
+                                .notifier)
+                            .addRental(rental);
+                        AutoRouter.of(context).pop();
+                    },
+                    <span style="color: #FF6C8A;">//4</span>
+                    () => showDefaultSnackbar(
+                        context,
+                        translate('view_product.already_requested'),
+                    ),
+                );
+              }
+            
+                                                        </p>
+                                                    </code>
+                                                </pre>
+            </div>
+
+        </div>
+
+        <ol class="blogcontext">
+            <li>Først instantiere jeg et RentalRequestInput objekt, med parametrene productId, RequestRentalPeriodInput og _noteControllerens text property.
+                <br><br>
+            </li>
+
+            <li>Derefter kontakter jeg vores RequestRentalNotifier gennem provideren og kalder tidligere nævnte requestRental funktion. Her kan vi se jeg parser inputtet, derefter håndtere jeg succes scenariet (rental = data fra før).
+                <br><br>
+            </li>
+
+            <li>Næste del er lidt ude af scope for dettet indlæg. Men i bund og grund har du som bruger tilknytte en list af rentals. Så det vi gør her er at tilføje en rental til din liste gennem en anden provider.         
+                <br><br>
+            </li>
+
+            <li>Til sidst håndtere jeg onAlreadyRequested scenariet, ved at vise brugeren en SnackBar widget som fortæller dem at de allerede har anmodet produktet i denne lejeperiode.
+            </li>
+
+        </ol>
+
+
+    </div>
 
 </body>
 
