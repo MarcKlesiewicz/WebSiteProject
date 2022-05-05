@@ -1850,6 +1850,49 @@
 
     </div>
 
+    <div class="blogpost">
+
+        <h2 class="blogcontext">Gesture og navigation</h2>
+        <div class="frontendLabel" style="margin-right: 5px;">
+            <b>Frontend</b>
+        </div>
+
+        <h5 class="blogcontext">14-04-2022</h5>
+        <p class="blogcontext">Uanset hvor simpel en applikation du skal bygger, er det (næsten) umuligt at komme udenom om at skulle registrere bruger interaktion og navigering af brugerne. I tidligere indlæg har jeg hurtigt fortalt at jeg bruger en onTap funktion på nogle af vores widgets. Og efter at have arbejdet med Flutter i nogle måneder ville jeg gerne begynde at uddybe nogle af de widget vi bruger og hvilket muligheder der følger med dem. <br><br>
+
+            Mere specifikt vil jeg kigge nærmere på GestureDetector og Navigator widgets. <br> <br>
+            
+            <b>GestureDetector</b><br>
+            En onTap funktion, som jeg også har demonstreret tidligere indlæg, er en GestureTapCallback funktion som returnere void. Den kan findes som en property på Flutters default buttons og widgets som forventer brugerinteraktion. Men i nogle tilfælde, faktisk ret ofte, har man brug for at tilføre et respons på widgets der ikke har en onTap funktion. <br><br>
+            
+            Det er her GestureDetector widget'et kan give en den ekstra fleksibilitet. Ved at wrappe dette widget rundt om et andet widget, vil den forsøge at genkende bruger interaktion og tilsvarende reagere på det. 
+            For mobil enheder er et tap nok den mest hyppige form for gesture som kommer til at ske. Men GestureDetector widget kan også registrere andre former for gestures, såsom doubleTap, horisontal/vertikal drag, , longPress eller onScale. <br><br>
+            
+            Videoen herunder viser en applikation jeg har bygget for at demonstrere nogle af mulighederne <b>INDSÆT VIDEO</b>
+            
+            </p>
+
+            <div style="text-align: center; width: 100%; ">
+                <img src="images/Hive_chart.png" alt="" style="height: 400px;">
+            </div>
+            
+            <p class="blogcontext">
+                <b>Navigator/AutoRouter</b><br>
+                
+                Der skal ikke mere end to pages i din applikation for at du har bruge for at bruge et Navigator widget. En Navigators formål, som navnet tydeligt indikere, er at navigere brugeren mellem ens pages. I Flutter refereres pages/screens som routes og er teknisk set bare et widget. Dog et widget med en body. <br><br>
+
+                Der findes forskellige måder at håndtere sin routing på i Flutter. I Rento har vi valgt at benytte et plugin som hedder AutoRouter. Det er en navigations pakke som understøtter "strongly-typed" argument overførelse, deep-linking og kode generering for et mere simpelt routing setup. <br>
+                Det kan koges hurtigt ned til en genereret route fil som opbevare en liste af AutoRoute objekter der tager en page som argument og ud som følgende. <br><br>
+
+                Når vi så gerne vil navigere vores bruger over til en specifik page, ved for eksempel registrering af en onTap funktion. Kan vi gøre følgende <br><br>
+
+                <b><i>onTap: () => AutoRouter.of(context).push(RentalChatPageRoute);</i></b> <br><br>
+
+                Push er en funktion lånt af tidligere nævnte Navigator widget og tilføjer en route til vores "stack of routes". Hvis vi gerne vil tilbage til den page vi kom fra og fjerne routen fra vores stack of routes, kan man kalde Navigator.pop() funktionen. Det er vigtigt at vide hvornår du bruger pop og ikke push, for at undgå at "over-stack" af routes som ikke længere er nødvendige at opbevare.
+                </p>
+
+    </div>
+
 </body>
 
 </html>
